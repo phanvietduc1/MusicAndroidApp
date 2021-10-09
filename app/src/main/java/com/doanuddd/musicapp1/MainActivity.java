@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         app_tag = (TextView) findViewById(R.id.app_tag);
 
-        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+        Intent i = new Intent(MainActivity.this, RegisterActivity.class);
         Thread thread = new Thread()
         {
             @Override
