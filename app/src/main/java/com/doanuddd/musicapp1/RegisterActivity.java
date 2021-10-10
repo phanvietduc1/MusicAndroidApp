@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputPhone = findViewById(R.id.edit_email);
         inputName = findViewById(R.id.edit_name);
         inputPassword = findViewById(R.id.edit_password);
+        btnLinkToLogin = findViewById(R.id.button_login);
 
         btnRegister = (Button)findViewById(R.id.button_register);
 
@@ -59,6 +60,10 @@ public class RegisterActivity extends AppCompatActivity {
         LoadingBar.setMessage("Waiting");
         LoadingBar.setCanceledOnTouchOutside(false);
 
+        init();
+    }
+
+    private void init(){
         btnRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -66,10 +71,14 @@ public class RegisterActivity extends AppCompatActivity {
                 password = inputPassword.getEditText().getText().toString();
                 name = inputName.getEditText().getText().toString();
 
-                Log.d("myfragment", phone);
-
                 CreateNewAccount(phone, password, name);
             }
+        });
+
+        btnLinkToLogin.setOnClickListener(view -> {
+            Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
         });
     }
 
@@ -91,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                         // no exist account -> create account
                         HashMap<String, Object> userdata = new HashMap<>();
 
-                        userdata.put("email", phone);
+                        userdata.put("phone", phone);
                         userdata.put("name", name);
                         userdata.put("password", password);
 
