@@ -1,11 +1,17 @@
-package com.doanuddd.musicapp1;
+package com.doanuddd.musicapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        L1 = (LinearLayout) findViewById(R.id.l1);
-        L2 = (LinearLayout) findViewById(R.id.l2);
-
-        app_tag = (TextView) findViewById(R.id.app_tag);
+        anhxa();
+        init();
 
         Intent i = new Intent(MainActivity.this, RegisterActivity.class);
         Thread thread = new Thread()
@@ -40,5 +44,15 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         thread.start();
+    }
+
+    private void anhxa(){
+        L1 = (LinearLayout) findViewById(R.id.l1);
+        L2 = (LinearLayout) findViewById(R.id.l2);
+        app_tag = (TextView) findViewById(R.id.app_tag);
+    }
+
+    private void init(){
+
     }
 }

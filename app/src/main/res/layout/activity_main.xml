@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_dark"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <LinearLayout
         android:id="@+id/l1"
@@ -17,8 +17,8 @@
         android:id="@+id/icon_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/music3"
-        android:layout_below="@+id/l1" />
+        android:layout_below="@+id/l1"
+        android:src="@drawable/music3" />
 
     <LinearLayout
         android:id="@+id/l2"

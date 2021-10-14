@@ -1,24 +1,16 @@
-package com.doanuddd.musicapp1;
+package com.doanuddd.musicapp1.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.toolbox.StringRequest;
+import com.doanuddd.musicapp1.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -27,15 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 //import org.snowcorp.login.helper.DatabaseHandler;
 //import org.snowcorp.login.helper.Functions;
 //import org.snowcorp.login.helper.SessionManager;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -82,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (password.equals(userPassword)){
                             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(i);
+
                             LoadingBar.dismiss();
                         } else {
                             LoadingBar.dismiss();
