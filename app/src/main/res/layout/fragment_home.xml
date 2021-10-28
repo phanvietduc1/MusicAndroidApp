@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".fragment.home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="500dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/listHomeSongView"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"></androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>
