@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void anhxa(){
-
+        // hello
         tabLayout = findViewById(R.id.myTabLayout);
         viewPager = findViewById(R.id.myViewPager);
     }
