@@ -38,11 +38,17 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
-        mainViewPageAdapter.addFragment(new home(), "Trang Chu");
-        mainViewPageAdapter.addFragment(new timkiem(), "Tim kiem");
+        mainViewPageAdapter.addFragment(new home(), "Trang Chủ");
+        mainViewPageAdapter.addFragment(new timkiem(), "BXH");
+        mainViewPageAdapter.addFragment(new timkiem(), "Chủ đề");
+        mainViewPageAdapter.addFragment(new timkiem(), "My Music");
+        mainViewPageAdapter.addFragment(new timkiem(), "Thông báo");
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_dashboard_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.chude);
+        tabLayout.getTabAt(3).setIcon(R.drawable.mymusic);
+        tabLayout.getTabAt(4).setIcon(R.drawable.thongbao);
     }
 }

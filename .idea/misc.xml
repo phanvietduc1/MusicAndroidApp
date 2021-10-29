@@ -19,8 +19,12 @@
         <entry key="..\:/MusicApp1/app/src/main/res/layout/fragment_register.xml" value="0.4466666666666667" />
         <entry key="..\:/MusicApp1/app/src/main/res/layout/status_bar.xml" value="0.3333333333333333" />
         <entry key="..\:/MusicApp1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20052083333333334" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20052083333333334" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable-xxxhdpi/ic_baseline_arrow_back_ios_new_24.xml" value="0.20052083333333334" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home.xml" value="0.1403985507246377" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home0.xml" value="0.3333333333333333" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_register.xml" value="0.3333333333333333" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_song_list.xml" value="0.6" />
@@ -41,5 +45,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
