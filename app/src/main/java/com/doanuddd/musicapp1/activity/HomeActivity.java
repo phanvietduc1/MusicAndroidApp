@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
+import com.doanuddd.musicapp1.fragment.bxh;
+import com.doanuddd.musicapp1.fragment.category;
 import com.doanuddd.musicapp1.fragment.home;
 import com.doanuddd.musicapp1.fragment.timkiem;
 import com.google.android.material.tabs.TabLayout;
@@ -39,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         mainViewPageAdapter.addFragment(new home(), "Trang Chủ");
-        mainViewPageAdapter.addFragment(new timkiem(), "BXH");
-        mainViewPageAdapter.addFragment(new timkiem(), "Chủ đề");
+        mainViewPageAdapter.addFragment(new bxh(), "BXH");
+        mainViewPageAdapter.addFragment(new category(), "Chủ đề");
         mainViewPageAdapter.addFragment(new timkiem(), "My Music");
         mainViewPageAdapter.addFragment(new timkiem(), "Thông báo");
         viewPager.setAdapter(mainViewPageAdapter);

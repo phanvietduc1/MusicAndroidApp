@@ -14,4 +14,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="new_gray">#1E1A3F</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#EA7621</color>
+    <color name="yellow">#D9D008</color>
 </resources>
