@@ -1,9 +1,11 @@
 package com.doanuddd.musicapp1.activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.model.User;
+import com.doanuddd.musicapp1.retrofit.ApiClient;
+import com.doanuddd.musicapp1.retrofit.UserApi;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +23,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.cogeek.tncoffee.utils.NetworkProvider;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 //import org.snowcorp.login.helper.DatabaseHandler;
 //import org.snowcorp.login.helper.Functions;
@@ -28,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private MaterialButton btnLogin, btnLinkToRegister, btnForgotPass;
     private TextInputLayout inputPhone, inputPassword;
-    String phone, password;
+    String email, password;
     String userPassword;
 
     ProgressDialog LoadingBar;
@@ -51,41 +62,40 @@ public class LoginActivity extends AppCompatActivity {
         init();
     }
 
-    private void LoginAccount(String phone, String password){
-        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)){
+    private void LoginAccount(String email, String password){
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();
         } else {
             LoadingBar.show();
 
-            final DatabaseReference mRef;
-            mRef = FirebaseDatabase.getInstance().getReference();
-
-            mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.child("Users").child(phone).exists()){
-                        userPassword = snapshot.child("Users").child(phone).child("password").getValue().toString();
-
-                        if (password.equals(userPassword)){
-                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(i);
+            if (email != "" && password != "") {
+                UserApi userApi = ApiClient.getRetrofitInstance().create(UserApi.class);
+                Call<User> call = userApi.authenticate(email,password);
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if (response.isSuccessful()) {
+                            User user = response.body();
+                            listener.onCompleteLogin(user);
 
                             LoadingBar.dismiss();
-                        } else {
-                            LoadingBar.dismiss();
-                            Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        LoadingBar.dismiss();
-                        Toast.makeText(LoginActivity.this, "Invalid account", Toast.LENGTH_SHORT).show();
+                        else {
+                            loading.dismiss();
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(response.errorBody().charStream(),ErrorResponse.class);
+                            Toast.makeText(LoginActivity.this, "Error Login", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Log.e("toang",t.getMessage());
+                        LoadingBar.dismiss();
+                        Toast.makeText(LoginActivity.this, "Error Login", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
         }
     }
 
@@ -93,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phone = inputPhone.getEditText().getText().toString();
+                email = inputPhone.getEditText().getText().toString();
                 password = inputPassword.getEditText().getText().toString();
 
                 LoginAccount(phone, password);

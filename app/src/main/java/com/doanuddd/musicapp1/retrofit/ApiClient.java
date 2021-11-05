@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     private static Retrofit retrofit;
 
-    private static final String BASE_URL = "https://golang-blog-api.herokuapp.com";
+    private static final String BASE_URL = "http://20.212.33.118:1111/";
 
     public static Retrofit getRetrofitInstance(){
         if (retrofit == null){
