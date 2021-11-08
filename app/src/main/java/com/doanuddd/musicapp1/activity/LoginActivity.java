@@ -24,7 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
-import com.cogeek.tncoffee.utils.NetworkProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,31 +69,32 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();
         } else {
             LoadingBar.show();
-
             if (email != "" && password != "") {
-                UserApi userApi = ApiClient.getRetrofitInstance().create(UserApi.class);
-                Call<User> call = userApi.authenticate(email,password);
+                User u = new User();
+                u.setEmail(email);
+                u.setToken(password);
+
+                UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
+                Call<User> call = userApi.authenticate(u);
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User user = response.body();
-                            listener.onCompleteLogin(user);
-
+                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(i);
+                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                             LoadingBar.dismiss();
                         }
                         else {
-                            loading.dismiss();
-                            Gson gson = new Gson();
-                            ErrorResponse errorResponse = gson.fromJson(response.errorBody().charStream(),ErrorResponse.class);
-                            Toast.makeText(LoginActivity.this, "Error Login", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Error Login1", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
                         Log.e("toang",t.getMessage());
                         LoadingBar.dismiss();
-                        Toast.makeText(LoginActivity.this, "Error Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Error Login2", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -106,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 email = inputPhone.getEditText().getText().toString();
                 password = inputPassword.getEditText().getText().toString();
 
-                LoginAccount(phone, password);
+                LoginAccount(email, password);
             }
         });
         btnLinkToRegister.setOnClickListener(view -> {
