@@ -16,29 +16,29 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/vn" />
+                android:src="@drawable/cd1" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/us" />
+                android:src="@drawable/cd2" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/jp"/>
+                android:src="@drawable/cd3"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/cn"/>
+                android:src="@drawable/cd4"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/kp"/>
+                android:src="@drawable/cd1"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:src="@drawable/cp"/>
+                android:src="@drawable/cd2"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
