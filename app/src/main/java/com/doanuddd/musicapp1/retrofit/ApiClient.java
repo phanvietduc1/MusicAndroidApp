@@ -24,8 +24,6 @@ public class ApiClient {
         String baseUrl = "http://20.212.33.118:1111/";
         Log.e("BaseURL", baseUrl);
         retrofit = new Retrofit.Builder()
-//                .baseUrl("http://20.58.161.221:2104/01/index.php/mobile/")
-//                .baseUrl("http://10.0.2.2:2104/01/index.php/mobile/")
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getUnsafeOkHttpClient())

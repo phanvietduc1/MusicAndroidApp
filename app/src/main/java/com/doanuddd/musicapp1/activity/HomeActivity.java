@@ -1,19 +1,15 @@
 package com.doanuddd.musicapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
 import com.doanuddd.musicapp1.fragment.bxh;
 import com.doanuddd.musicapp1.fragment.category;
-import com.doanuddd.musicapp1.fragment.home;
+import com.doanuddd.musicapp1.fragment.FragmentHome;
 import com.doanuddd.musicapp1.fragment.timkiem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -40,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
-        mainViewPageAdapter.addFragment(new home(), "Home");
+        mainViewPageAdapter.addFragment(new FragmentHome(), "Home");
         mainViewPageAdapter.addFragment(new timkiem(), "Search");
         mainViewPageAdapter.addFragment(new category(), "Library");
         mainViewPageAdapter.addFragment(new bxh(), "AAA");

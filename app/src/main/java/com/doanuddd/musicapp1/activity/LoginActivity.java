@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                             LoadingBar.dismiss();
                         }
                         else {
-                            Toast.makeText(LoginActivity.this, "Error Login1", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override

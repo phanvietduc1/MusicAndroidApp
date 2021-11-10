@@ -49,7 +49,6 @@ public class recrycleSongList extends RecyclerView.Adapter<recrycleSongList.Cust
     public class CustomeViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtViewSongName, txtViewSongArtist, txtViewUrl, txtViewImage;
-
         public CustomeViewHolder(@NonNull View itemView){
 
             super(itemView);
