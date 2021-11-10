@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run(){
                 try {
-                    sleep(5000); // 5 second
+                    sleep(1000); // 5 second
                 }
                 catch (InterruptedException e){
                     e.printStackTrace();

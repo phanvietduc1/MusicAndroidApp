@@ -40,17 +40,15 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
-        mainViewPageAdapter.addFragment(new home(), "Trang Chủ");
-        mainViewPageAdapter.addFragment(new bxh(), "BXH");
-        mainViewPageAdapter.addFragment(new category(), "Chủ đề");
-        mainViewPageAdapter.addFragment(new timkiem(), "My Music");
-        mainViewPageAdapter.addFragment(new timkiem(), "Thông báo");
+        mainViewPageAdapter.addFragment(new home(), "Home");
+        mainViewPageAdapter.addFragment(new timkiem(), "Search");
+        mainViewPageAdapter.addFragment(new category(), "Library");
+        mainViewPageAdapter.addFragment(new bxh(), "AAA");
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_dashboard_black_24dp);
-        tabLayout.getTabAt(2).setIcon(R.drawable.chude);
-        tabLayout.getTabAt(3).setIcon(R.drawable.mymusic);
-        tabLayout.getTabAt(4).setIcon(R.drawable.thongbao);
+        tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
+        tabLayout.getTabAt(1).setIcon(R.drawable.icontimkiem);
+        tabLayout.getTabAt(2).setIcon(R.drawable.iconthuvien);
+        tabLayout.getTabAt(3).setIcon(R.drawable.iconlogo);
     }
 }

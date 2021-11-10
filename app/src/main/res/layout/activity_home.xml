@@ -26,11 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/bgr_maintab"
-        app:tabIndicatorColor="#C3C3C3"
+        app:tabIndicatorColor="#FFFFFF"
         app:tabIndicatorHeight="1dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#FFFFFF"
-        app:tabTextColor="#000">
+        app:tabTextColor="#FFFFFF"
+        app:tabIconTint="@color/white">
 
     </com.google.android.material.tabs.TabLayout>
 </LinearLayout>

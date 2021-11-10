@@ -1,49 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.category">
+    android:background="#000000"
+    android:fitsSystemWindows="true"
+    app:layout_collapseMode="pin">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Thư viện"
+        android:textColor="#FFFEFE"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/imageviewuserthuvien"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/idaddthuvien"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/plus_50px"
+        android:text="+"
+        android:textColor="#FFF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageviewuserthuvien"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/imgitem"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd1" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd2" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd3"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd4"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd1"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/cd2"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@drawable/lofi"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/ab"
+                    android:layout_margin="10dp">
+                </ImageView>
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Danh sách phát 1"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_margin="10dp">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/ab"
+                    android:layout_margin="10dp">
+                </ImageView>
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Danh sách phát 2"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_margin="10dp">
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Playlist gợi ý"
+            android:textSize="36sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp">
+        </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="105dp"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/roundedImageView1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/pl1"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Sơn Tùng MTP Radio"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="105dp"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/roundedImageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/pl2"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Trịnh Thăng Bình Radio"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="105dp"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/roundedImageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/pl3"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Lê Bảo Bình Radio"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
     </ScrollView>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
