@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                             LoadingBar.dismiss();
                         }
                         else {
+                            LoadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
                         }
                     }

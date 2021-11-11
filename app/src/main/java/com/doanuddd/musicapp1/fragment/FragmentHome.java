@@ -6,17 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.activity.HomeActivity;
 import com.doanuddd.musicapp1.adapter.ListSongAdapter;
-import com.doanuddd.musicapp1.adapter.ListSongAdapter2;
-import com.doanuddd.musicapp1.adapter.recrycleSongList;
 import com.doanuddd.musicapp1.model.Song;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
 import com.doanuddd.musicapp1.retrofit.SongApi;
