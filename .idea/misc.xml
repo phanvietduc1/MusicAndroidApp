@@ -43,6 +43,9 @@
         <entry key="..\:/D/Code/Android/Đồ án/Android-music-player/app/src/main/res/layout/fragment_category.xml" value="0.23097826086956522" />
         <entry key="..\:/D/Code/Android/Đồ án/Android-music-player/app/src/main/res/layout/fragment_home.xml" value="0.23097826086956522" />
         <entry key="..\:/D/Code/Android/Đồ án/Android-music-player/app/src/main/res/layout/fragment_timkiem.xml" value="0.23097826086956522" />
+        <entry key="..\:/D/Code/Android/Đồ án/New folder/MusicAndroidApp/app/src/main/res/drawable-xxxhdpi/rounded_layout.xml" value="0.24259259259259258" />
+        <entry key="..\:/D/Code/Android/Đồ án/New folder/MusicAndroidApp/app/src/main/res/layout/fragment_search.xml" value="0.2346014492753623" />
+        <entry key="..\:/D/Code/Android/Đồ án/New folder/MusicAndroidApp/app/src/main/res/layout/row_artist.xml" value="0.2346014492753623" />
         <entry key="..\:/MusicAndroidApp/app/src/main/res/drawable/component_9.xml" value="0.1" />
         <entry key="..\:/MusicAndroidApp/app/src/main/res/layout/activity_email_verify.xml" value="0.3333333333333333" />
         <entry key="..\:/MusicAndroidApp/app/src/main/res/layout/activity_home.xml" value="0.16893115942028986" />
@@ -59,7 +62,6 @@
         <entry key="..\:/MusicApp1/app/src/main/res/layout/fragment_register.xml" value="0.4466666666666667" />
         <entry key="..\:/MusicApp1/app/src/main/res/layout/status_bar.xml" value="0.3333333333333333" />
         <entry key="..\:/MusicApp1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20052083333333334" />
-        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable-hdpi/bgr_playlist.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable-xxxhdpi/ic_baseline_arrow_back_ios_new_24.xml" value="0.115625" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home.xml" value="0.1403985507246377" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home0.xml" value="0.3333333333333333" />
@@ -72,12 +74,11 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_bxh.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_category.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.12545289855072464" />
-        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_home.xml" value="0.13333333333333333" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_notifications.xml" value="0.12545289855072464" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_second.xml" value="0.14447463768115942" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_timkiem.xml" value="0.11197916666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_layout.xml" value="0.1" />
-        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_song.xml" value="0.4466666666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
