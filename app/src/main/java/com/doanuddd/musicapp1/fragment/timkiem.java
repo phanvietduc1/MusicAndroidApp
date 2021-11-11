@@ -63,7 +63,7 @@ public class timkiem extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_timkiem, container, false);
+        view =  inflater.inflate(R.layout.fragment_search, container, false);
         return view;
     }
 }

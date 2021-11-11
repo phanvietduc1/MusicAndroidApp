@@ -1,12 +1,9 @@
 package com.doanuddd.musicapp1.activity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,9 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.model.User;
-import com.doanuddd.musicapp1.retrofit.ApiClient;
-import com.doanuddd.musicapp1.retrofit.UserApi;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -27,15 +21,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
 
 //import org.snowcorp.login.helper.Functions;
 
 import java.util.HashMap;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private MaterialButton btnLinkToLogin;
@@ -84,41 +73,53 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void CreateNewAccount(String email, String password, String name) {
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
+    private void CreateNewAccount(String phone, String password, String name) {
+        // check account database empty or not
+
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
             Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();
         } else {
             LoadingBar.show();
 
-            User u = new User();
-            u.setName(name);
-            u.setEmail(email);
-            u.setToken(password);
+            final DatabaseReference mRef;
+            mRef = FirebaseDatabase.getInstance().getReference();
 
-            UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
-            Call<User> call = userApi.register(u);
-            call.enqueue(new Callback<User>() {
+            mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if (response.isSuccessful()) {
-                        Toast.makeText(RegisterActivity.this, "Sign Up success", Toast.LENGTH_SHORT).show();
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (!snapshot.child("Users").child(phone).exists()){
+                        // no exist account -> create account
+                        HashMap<String, Object> userdata = new HashMap<>();
+
+                        userdata.put("phone", phone);
+                        userdata.put("name", name);
+                        userdata.put("password", password);
+
+                        mRef.child("Users").child(phone).updateChildren(userdata)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            LoadingBar.dismiss();
+                                            Toast.makeText(RegisterActivity.this, "Register Successfull", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            LoadingBar.dismiss();
+                                            Toast.makeText(RegisterActivity.this, "Register Fail", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                    } else {
                         LoadingBar.dismiss();
-                        Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(i);
-                    }
-                    else {
-                        LoadingBar.dismiss();
-                        Toast.makeText(RegisterActivity.this, "Sign Up error 1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "User with this email already exist", Toast.LENGTH_SHORT).show();
                     }
                 }
+
                 @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Log.e("toang",t.getMessage());
-                    LoadingBar.dismiss();
-                    Toast.makeText(RegisterActivity.this, "Sign Up error 2", Toast.LENGTH_SHORT).show();
+                public void onCancelled(@NonNull DatabaseError error) {
+
                 }
             });
         }
-
     }
 }

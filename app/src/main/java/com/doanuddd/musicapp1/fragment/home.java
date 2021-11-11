@@ -77,7 +77,7 @@ public class home extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-//        ApiInterface service = ApiClient.getRetrofitInstance().create(ApiInterface.class);
+        ApiInterface service = ApiClient.getRetrofitInstance().create(ApiInterface.class);
 
 //        Call<List<Song>> call = service.getProducts();
 //

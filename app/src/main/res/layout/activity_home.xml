@@ -12,26 +12,29 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/myViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="10">
+
         <View
-            android:background="#FFF"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp"
+            android:background="#FFF" />
     </androidx.viewpager.widget.ViewPager>
 
-
+<!--android:background="@drawable/bgr_maintab"-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
         android:background="@drawable/bgr_maintab"
+        app:tabIconTint="@color/white"
         app:tabIndicatorColor="#FFFFFF"
+        app:tabIndicatorGravity="top"
         app:tabIndicatorHeight="1dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#FFFFFF"
-        app:tabTextColor="#FFFFFF"
-        app:tabIconTint="@color/white">
+        app:tabTextAppearance="@style/CustomTabText"
+        app:tabTextColor="#FFFFFF">
 
     </com.google.android.material.tabs.TabLayout>
 </LinearLayout>
