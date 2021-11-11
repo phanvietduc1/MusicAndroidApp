@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 public interface ArtistApi {
 
     //@FormUrlEncoded
-    @GET("/api/artist")
+    @GET("/api/getArtist")
     Call<List<Artist>> getArtist();
 }

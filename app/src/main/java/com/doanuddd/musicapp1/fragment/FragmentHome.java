@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.adapter.ListArtistAdapter;
 import com.doanuddd.musicapp1.adapter.ListSongAdapter;
+import com.doanuddd.musicapp1.model.Artist;
 import com.doanuddd.musicapp1.model.Song;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
+import com.doanuddd.musicapp1.retrofit.ArtistApi;
 import com.doanuddd.musicapp1.retrofit.SongApi;
 
 import java.util.ArrayList;
@@ -32,7 +35,9 @@ public class FragmentHome extends Fragment {
 
     View view;
     RecyclerView listSongView;
+    RecyclerView listArtistView;
     ListSongAdapter listSongAdapter;
+    ListArtistAdapter listArtistAdapter;
 
     //khang commitukm
 
@@ -66,6 +71,7 @@ public class FragmentHome extends Fragment {
 
     private void anhxa() {
         listSongView = view.findViewById(R.id.viewListSong);
+        listArtistView = view.findViewById(R.id.viewListArtist);
     }
 
     @Override
@@ -81,8 +87,10 @@ public class FragmentHome extends Fragment {
     private void getData(){
 
         SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
+        ArtistApi artistApi = ApiClient.self().retrofit.create(ArtistApi.class);
 
         retrofit2.Call<List<Song>> call = songApi.getSong();
+        retrofit2.Call<List<Artist>> callArtist = artistApi.getArtist();
 
         call.enqueue(new Callback<List<Song>>() {
             @Override
@@ -102,5 +110,20 @@ public class FragmentHome extends Fragment {
             }
         });
 
+        callArtist.enqueue(new Callback<List<Artist>>() {
+            @Override
+            public void onResponse(Call<List<Artist>> call, Response<List<Artist>> response) {
+                ArrayList<Artist> artistArrayList = (ArrayList<Artist>) response.body();
+                listArtistAdapter = new ListArtistAdapter(artistArrayList, getActivity());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false);
+                listArtistView.setLayoutManager(layoutManager);
+                listArtistView.setAdapter(listArtistAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Artist>> call, Throwable t) {
+
+            }
+        });
     }
 }
