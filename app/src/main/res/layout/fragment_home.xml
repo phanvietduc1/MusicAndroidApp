@@ -55,88 +55,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtplaylist"
                     android:layout_marginTop="16dp"
                     android:scrollbars="none">
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/listSong"
-                    android:layout_width="match_parent"
-                    android:layout_height="270dp"
-                    android:orientation="horizontal">
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="150dp"-->
-<!--                            android:layout_height="150dp"-->
-<!--                            android:src="@drawable/pl1"-->
-<!--                            android:layout_margin="10dp">-->
-<!--                        </ImageView>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:text="Sơn Tùng MTP Radio"-->
-<!--                            android:textSize="25dp"-->
-<!--                            android:layout_margin="10dp"-->
-<!--                            android:textColor="@color/white">-->
-<!--                        </TextView>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="150dp"-->
-<!--                            android:layout_height="150dp"-->
-<!--                            android:src="@drawable/pl2"-->
-<!--                            android:layout_margin="10dp">-->
-<!--                        </ImageView>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:text="Trịnh Thăng Bình Radio"-->
-<!--                            android:textSize="25dp"-->
-<!--                            android:layout_margin="10dp"-->
-<!--                            android:textColor="@color/white">-->
-<!--                        </TextView>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="150dp"-->
-<!--                            android:layout_height="150dp"-->
-<!--                            android:src="@drawable/pl3"-->
-<!--                            android:layout_margin="10dp">-->
-<!--                        </ImageView>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:text="Lê Bảo Bình Radio"-->
-<!--                            android:textSize="25dp"-->
-<!--                            android:layout_margin="10dp"-->
-<!--                            android:textColor="@color/white">-->
-<!--                        </TextView>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="150dp"-->
-<!--                            android:layout_height="150dp"-->
-<!--                            android:src="@drawable/pl4"-->
-<!--                            android:layout_margin="10dp">-->
-<!--                        </ImageView>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:text="Masew Radio"-->
-<!--                            android:textSize="25dp"-->
-<!--                            android:layout_margin="10dp"-->
-<!--                            android:textColor="@color/white">-->
-<!--                        </TextView>-->
-<!--                    </LinearLayout>-->
-                </androidx.viewpager.widget.ViewPager>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/viewListSong">
+
+                    </androidx.recyclerview.widget.RecyclerView>
                 </HorizontalScrollView>
                 <TextView
                     android:id="@+id/txtnghesi"

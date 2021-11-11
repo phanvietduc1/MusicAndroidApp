@@ -5,65 +5,59 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.model.Song;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class ListSongAdapter extends PagerAdapter {
+public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.CustomViewHolder> {
+
+    private List<Song> songList;
     Context context;
-    ArrayList<Song> arraySongList;
 
-    public ListSongAdapter(Context context, ArrayList<Song> arraySongList) {
+    public ListSongAdapter(List<Song> songList, Context context) {
+        this.songList = songList;
         this.context = context;
-        this.arraySongList = arraySongList;
-    }
-
-    @Override
-    public int getCount() {
-        return arraySongList.size();
-    }
-
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
     }
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_song, null);
+    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.row_song, parent, false);
 
-        ImageView songImageView = view.findViewById(R.id.songImg);
-        TextView songTextView = view.findViewById(R.id.songText);
-
-        Picasso.with(context).load(arraySongList.get(position).getHinhBaiHat()).into(songImageView);
-        songTextView.setText(arraySongList.get(position).getTenBaiHat());
-
-        Button a = view.findViewById(R.id.bam);
-
-        a.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("bam","click");
-            }
-        });
-
-        container.addView(view);
-        return view;
+        return new CustomViewHolder(view);
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View) object);
+    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+        Picasso.with(context).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
+        holder.songTextView.setText(songList.get(position).getTenBaiHat());
+
+        Log.d("aa", holder.songTextView.getText().toString());
+    }
+
+    @Override
+    public int getItemCount() {
+        return songList.size();
+    }
+
+    public class CustomViewHolder extends RecyclerView.ViewHolder {
+        ImageView songImageView;
+        TextView songTextView;
+
+        public CustomViewHolder(@NonNull View itemView){
+            super(itemView);
+
+            songImageView = itemView.findViewById(R.id.songImg);
+            songTextView = itemView.findViewById(R.id.songText);
+        }
     }
 }

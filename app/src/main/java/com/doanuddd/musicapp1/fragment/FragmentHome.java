@@ -1,30 +1,25 @@
 package com.doanuddd.musicapp1.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.HomeActivity;
-import com.doanuddd.musicapp1.activity.LoginActivity;
 import com.doanuddd.musicapp1.adapter.ListSongAdapter;
+import com.doanuddd.musicapp1.adapter.ListSongAdapter2;
 import com.doanuddd.musicapp1.adapter.recrycleSongList;
 import com.doanuddd.musicapp1.model.Song;
-import com.doanuddd.musicapp1.model.User;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
-import com.doanuddd.musicapp1.retrofit.ApiInterface;
 import com.doanuddd.musicapp1.retrofit.SongApi;
-import com.doanuddd.musicapp1.retrofit.UserApi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +36,8 @@ import retrofit2.Response;
 public class FragmentHome extends Fragment {
 
     View view;
-    private recrycleSongList myAdapter;
-    private RecyclerView recyclerView;
-    ViewPager listSongView;
+    RecyclerView listSongView;
     ListSongAdapter listSongAdapter;
-    Button a;
-
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -77,15 +68,7 @@ public class FragmentHome extends Fragment {
     }
 
     private void anhxa() {
-        listSongView = view.findViewById(R.id.listSong);
-//        a = view.findViewById(R.id.bam);
-//
-//        a.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.e("bam","click");
-//            }
-//        });
+        listSongView = view.findViewById(R.id.viewListSong);
     }
 
     @Override
@@ -108,8 +91,12 @@ public class FragmentHome extends Fragment {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 ArrayList<Song> songArrayList = (ArrayList<Song>) response.body();
-                listSongAdapter = new ListSongAdapter(getActivity(), songArrayList);
+//                listSongAdapter = new ListSongAdapter2(getActivity(), songArrayList);
+                listSongAdapter = new ListSongAdapter(songArrayList, getActivity());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                listSongView.setLayoutManager(layoutManager);
                 listSongView.setAdapter(listSongAdapter);
+
             }
 
             @Override
