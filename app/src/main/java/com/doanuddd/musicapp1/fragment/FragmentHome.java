@@ -34,6 +34,8 @@ public class FragmentHome extends Fragment {
     RecyclerView listSongView;
     ListSongAdapter listSongAdapter;
 
+    //khang commit
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
