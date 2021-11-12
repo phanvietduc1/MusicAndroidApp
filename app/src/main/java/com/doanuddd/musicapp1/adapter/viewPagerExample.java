@@ -18,11 +18,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ListSongAdapter2 extends PagerAdapter {
+public class viewPagerExample extends PagerAdapter {
     Context context;
     ArrayList<Song> arraySongList;
 
-    public ListSongAdapter2(Context context, ArrayList<Song> arraySongList) {
+    public viewPagerExample(Context context, ArrayList<Song> arraySongList) {
         this.context = context;
         this.arraySongList = arraySongList;
     }
@@ -46,7 +46,7 @@ public class ListSongAdapter2 extends PagerAdapter {
         ImageView songImageView = view.findViewById(R.id.songImg);
         TextView songTextView = view.findViewById(R.id.songText);
 
-        Picasso.with(context).load(arraySongList.get(position).getHinhBaiHat()).into(songImageView);
+        Picasso.get(/*context*/).load(arraySongList.get(position).getHinhBaiHat()).into(songImageView);
         songTextView.setText(arraySongList.get(position).getTenBaiHat());
 
 

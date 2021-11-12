@@ -30,7 +30,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.row_song, parent, false);
 
         return new CustomViewHolder(view);
@@ -38,7 +38,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        Picasso.with(context).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
+        Picasso.get(/*context*/).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
         holder.songTextView.setText(songList.get(position).getTenBaiHat());
 
         Log.d("aa", holder.songTextView.getText().toString());

@@ -10,7 +10,7 @@ import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
 import com.doanuddd.musicapp1.fragment.bxh;
 import com.doanuddd.musicapp1.fragment.category;
 import com.doanuddd.musicapp1.fragment.FragmentHome;
-import com.doanuddd.musicapp1.fragment.timkiem;
+import com.doanuddd.musicapp1.fragment.FragmentSearch;
 import com.google.android.material.tabs.TabLayout;
 
 public class HomeActivity extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         mainViewPageAdapter.addFragment(new FragmentHome(), "Home");
-        mainViewPageAdapter.addFragment(new timkiem(), "Search");
+        mainViewPageAdapter.addFragment(new FragmentSearch(), "Search");
         mainViewPageAdapter.addFragment(new category(), "Library");
         mainViewPageAdapter.addFragment(new bxh(), "AAA");
         viewPager.setAdapter(mainViewPageAdapter);

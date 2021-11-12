@@ -37,7 +37,7 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        Picasso.with(context).load(artistList.get(position).getHinhNgheSi()).into(holder.artistImageView);
+        Picasso.get(/*context*/).load(artistList.get(position).getHinhNgheSi()).into(holder.artistImageView);
         holder.artistTextView.setText(artistList.get(position).getTenNgheSi());
 
         Log.d("aa", holder.artistTextView.getText().toString());
