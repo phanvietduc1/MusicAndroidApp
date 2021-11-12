@@ -1,4 +1,5 @@
 package com.doanuddd.musicapp1.adapter;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
 
     @Override
     public int getItemCount() {
+        System.out.println("So nghe si: " + artistList.size());
         return artistList.size();
     }
 
@@ -52,7 +54,7 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
         ImageView artistImageView;
         TextView artistTextView;
 
-        public CustomViewHolder(@NonNull View itemView){
+        public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
 
             artistImageView = itemView.findViewById(R.id.artistImg);

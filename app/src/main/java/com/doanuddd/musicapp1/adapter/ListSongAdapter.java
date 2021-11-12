@@ -53,7 +53,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
         ImageView songImageView;
         TextView songTextView;
 
-        public CustomViewHolder(@NonNull View itemView){
+        public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
 
             songImageView = itemView.findViewById(R.id.songImg);

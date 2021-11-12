@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#000"
     android:orientation="vertical"
     tools:context=".activity.HomeActivity">
 
@@ -27,6 +27,7 @@
         android:layout_height="55dp"
         android:background="@drawable/bgr_maintab"
         app:tabIndicatorColor="#FFFFFF"
+        app:tabIndicatorGravity="top"
         app:tabIndicatorHeight="1dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#FFFFFF"
