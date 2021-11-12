@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/bgr_maintab">
+        android:background="#1A2D31">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/artistImg"
             android:layout_width="150dp"

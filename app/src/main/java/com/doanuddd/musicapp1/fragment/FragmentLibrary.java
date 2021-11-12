@@ -11,10 +11,10 @@ import com.doanuddd.musicapp1.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link category#newInstance} factory method to
+ * Use the {@link FragmentLibrary#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class category extends Fragment {
+public class FragmentLibrary extends Fragment {
 
     View view;
 
@@ -27,7 +27,7 @@ public class category extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public category() {
+    public FragmentLibrary() {
         // Required empty public constructor
     }
 
@@ -40,8 +40,8 @@ public class category extends Fragment {
      * @return A new instance of fragment category.
      */
     // TODO: Rename and change types and number of parameters
-    public static category newInstance(String param1, String param2) {
-        category fragment = new category();
+    public static FragmentLibrary newInstance(String param1, String param2) {
+        FragmentLibrary fragment = new FragmentLibrary();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

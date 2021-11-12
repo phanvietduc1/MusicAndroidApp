@@ -96,7 +96,6 @@ public class FragmentSearch extends Fragment {
                 if (listSong.size() > 0){
                     searchAdapter = new SearchAdapter(getActivity(), listSong);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//                    LinearLayout linearLayoutManager = new LinearLayout(getActivity());
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(searchAdapter);
                     textView.setVisibility(View.GONE);

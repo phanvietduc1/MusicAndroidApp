@@ -11,10 +11,10 @@ import com.doanuddd.musicapp1.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link bxh#newInstance} factory method to
+ * Use the {@link FragmentSetting#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class bxh extends Fragment {
+public class FragmentSetting extends Fragment {
 
     View view;
 
@@ -27,7 +27,7 @@ public class bxh extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public bxh() {
+    public FragmentSetting() {
         // Required empty public constructor
     }
 
@@ -40,8 +40,8 @@ public class bxh extends Fragment {
      * @return A new instance of fragment timkiem.
      */
     // TODO: Rename and change types and number of parameters
-    public static bxh newInstance(String param1, String param2) {
-        bxh fragment = new bxh();
+    public static FragmentSetting newInstance(String param1, String param2) {
+        FragmentSetting fragment = new FragmentSetting();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

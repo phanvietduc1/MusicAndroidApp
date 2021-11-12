@@ -7,8 +7,8 @@ import android.os.Bundle;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
-import com.doanuddd.musicapp1.fragment.bxh;
-import com.doanuddd.musicapp1.fragment.category;
+import com.doanuddd.musicapp1.fragment.FragmentSetting;
+import com.doanuddd.musicapp1.fragment.FragmentLibrary;
 import com.doanuddd.musicapp1.fragment.FragmentHome;
 import com.doanuddd.musicapp1.fragment.FragmentSearch;
 import com.google.android.material.tabs.TabLayout;
@@ -38,8 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         mainViewPageAdapter.addFragment(new FragmentHome(), "Home");
         mainViewPageAdapter.addFragment(new FragmentSearch(), "Search");
-        mainViewPageAdapter.addFragment(new category(), "Library");
-        mainViewPageAdapter.addFragment(new bxh(), "AAA");
+        mainViewPageAdapter.addFragment(new FragmentLibrary(), "Library");
+        mainViewPageAdapter.addFragment(new FragmentSetting(), "AAA");
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
