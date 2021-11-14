@@ -36,4 +36,6 @@
     <color name="colorNavIcon">#ABABAB</color>
 
     <color name="colorWhite">#ffffff</color>
+
+    <color name="bgr_maintab">#1A2D30</color>
 </resources>
