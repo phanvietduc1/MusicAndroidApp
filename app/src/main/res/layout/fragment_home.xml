@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:id="@+id/viewListSong">
-                        <!-- load danh sach nghe si o day-->
+
                     </androidx.recyclerview.widget.RecyclerView>
                 </HorizontalScrollView>
                 <TextView
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                <HorizontalScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -72,10 +72,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:id="@+id/viewListArtist">
-
+                        android:id="@+id/viewListArtist"
+                        android:nestedScrollingEnabled="false">
+                        <!--danh sach nghe si o day-->
                     </androidx.recyclerview.widget.RecyclerView>
-                </HorizontalScrollView>
+                </androidx.core.widget.NestedScrollView>
                 <TextView
                     android:id="@+id/txtthinhhanh"
                     android:layout_marginLeft="10dp"
@@ -288,94 +289,102 @@
                     android:textSize="28sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                <HorizontalScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtnghesi"
                     android:layout_marginTop="16dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:src="@drawable/cd1"
-                                android:layout_margin="10dp">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:text="K-pop"
-                                android:textSize="25dp"
-                                android:layout_margin="10dp"
-                                android:textColor="@color/white">
-                            </TextView>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:src="@drawable/cd2"
-                                android:layout_margin="10dp">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:text="Discover Weekly"
-                                android:textSize="25dp"
-                                android:layout_margin="10dp"
-                                android:textColor="@color/white">
-                            </TextView>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:src="@drawable/cd3"
-                                android:layout_margin="10dp">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:text="Acoustic"
-                                android:textSize="25dp"
-                                android:layout_margin="10dp"
-                                android:textColor="@color/white">
-                            </TextView>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:src="@drawable/cd4"
-                                android:layout_margin="10dp">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:text="Hip Hop"
-                                android:textSize="25dp"
-                                android:layout_margin="10dp"
-                                android:textColor="@color/white">
-                            </TextView>
-                        </LinearLayout>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                        android:orientation="horizontal"
+                        android:id="@+id/viewListGenre"
+                        android:nestedScrollingEnabled="false">
+                        <!--danh sach chu de o day-->
+                    </androidx.recyclerview.widget.RecyclerView>
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical">-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="150dp"-->
+<!--                                android:layout_height="150dp"-->
+<!--                                android:src="@drawable/cd1"-->
+<!--                                android:layout_margin="10dp">-->
+<!--                            </ImageView>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="60dp"-->
+<!--                                android:text="K-pop"-->
+<!--                                android:textSize="25dp"-->
+<!--                                android:layout_margin="10dp"-->
+<!--                                android:textColor="@color/white">-->
+<!--                            </TextView>-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical">-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="150dp"-->
+<!--                                android:layout_height="150dp"-->
+<!--                                android:src="@drawable/cd2"-->
+<!--                                android:layout_margin="10dp">-->
+<!--                            </ImageView>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="60dp"-->
+<!--                                android:text="Discover Weekly"-->
+<!--                                android:textSize="25dp"-->
+<!--                                android:layout_margin="10dp"-->
+<!--                                android:textColor="@color/white">-->
+<!--                            </TextView>-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical">-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="150dp"-->
+<!--                                android:layout_height="150dp"-->
+<!--                                android:src="@drawable/cd3"-->
+<!--                                android:layout_margin="10dp">-->
+<!--                            </ImageView>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="60dp"-->
+<!--                                android:text="Acoustic"-->
+<!--                                android:textSize="25dp"-->
+<!--                                android:layout_margin="10dp"-->
+<!--                                android:textColor="@color/white">-->
+<!--                            </TextView>-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical">-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="150dp"-->
+<!--                                android:layout_height="150dp"-->
+<!--                                android:src="@drawable/cd4"-->
+<!--                                android:layout_margin="10dp">-->
+<!--                            </ImageView>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="60dp"-->
+<!--                                android:text="Hip Hop"-->
+<!--                                android:textSize="25dp"-->
+<!--                                android:layout_margin="10dp"-->
+<!--                                android:textColor="@color/white">-->
+<!--                            </TextView>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+                </androidx.core.widget.NestedScrollView>
                 <TextView
                     android:id="@+id/txtbangxephang"
                     android:layout_width="wrap_content"
