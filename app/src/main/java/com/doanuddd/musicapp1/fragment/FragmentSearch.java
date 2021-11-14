@@ -58,7 +58,6 @@ public class FragmentSearch extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_search, container, false);
-
         toolbar = view.findViewById(R.id.toilbartimkiem);
         recyclerView = view.findViewById(R.id.recyclerviewtimkiem);
         textView = view.findViewById(R.id.textviewtimkiemnull);
@@ -73,8 +72,18 @@ public class FragmentSearch extends Fragment {
         inflater.inflate(R.menu.menu_search, menu);
         MenuItem menuItem = menu.findItem(R.id.menusearch);
         androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) menuItem.getActionView();
-//        searchView.setQueryHint("Search Your Song");
-
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Alo", Toast.LENGTH_SHORT).show();
+            }
+        });
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toolbar.setTitleTextColor(Color.WHITE);
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -83,6 +92,8 @@ public class FragmentSearch extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                toolbar.setTitleTextColor(Color.WHITE);
+
                 recyclerView.setBackgroundColor(Color.BLACK);
                 if (!newText.trim().equals("")){
                     SearchSong(newText);

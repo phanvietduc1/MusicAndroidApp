@@ -22,7 +22,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:collapseIcon="?attr/actionModeCloseDrawable"
-            app:title="Search your song"
+            app:title="Find Your Song"
             app:titleTextColor="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 
