@@ -5,6 +5,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Song {
+    @SerializedName("_id")
+    @Expose
+    private String id;
     @SerializedName("caSi")
     @Expose
     private String caSi;

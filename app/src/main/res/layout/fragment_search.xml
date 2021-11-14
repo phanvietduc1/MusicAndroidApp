@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
         android:background="@color/white">
 
@@ -22,7 +22,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:collapseIcon="?attr/actionModeCloseDrawable"
-            app:title="Nghệ sĩ, bài hát, hoặc podcast"
+            app:title="Search your song"
             app:titleTextColor="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 

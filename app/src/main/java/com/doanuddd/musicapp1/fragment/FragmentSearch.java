@@ -1,30 +1,36 @@
 package com.doanuddd.musicapp1.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.HomeActivity;
+import com.doanuddd.musicapp1.activity.LoginActivity;
 import com.doanuddd.musicapp1.adapter.SearchAdapter;
+import com.doanuddd.musicapp1.model.Keyword;
 import com.doanuddd.musicapp1.model.Song;
+import com.doanuddd.musicapp1.model.User;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
-import com.doanuddd.musicapp1.retrofit.ServiceApi;
 import com.doanuddd.musicapp1.retrofit.SongApi;
+import com.doanuddd.musicapp1.retrofit.UserApi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,18 +72,20 @@ public class FragmentSearch extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_search, menu);
         MenuItem menuItem = menu.findItem(R.id.menusearch);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) menuItem.getActionView();
+//        searchView.setQueryHint("Search Your Song");
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
+            public boolean onQueryTextSubmit(String query) {
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
+            public boolean onQueryTextChange(String newText) {
                 recyclerView.setBackgroundColor(Color.BLACK);
-                if (!s.trim().equals("")){
-                    SearchSong(s);
+                if (!newText.trim().equals("")){
+                    SearchSong(newText);
                 }
                 return true;
             }
@@ -86,10 +94,12 @@ public class FragmentSearch extends Fragment {
     }
 
     private void SearchSong(String query){
-        ServiceApi serviceApi = ApiClient.self().retrofit.create(ServiceApi.class);
-        Call<List<Song>> callback = serviceApi.getSongByKeyWord(query);
-        callback.enqueue(new Callback<List<Song>>() {
+        Keyword k = new Keyword();
+        k.setKeyword(query);
 
+        SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
+        Call<List<Song>> callback = songApi.getSongByKeyWord(k);
+        callback.enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 listSong = (ArrayList<Song>) response.body();
@@ -100,7 +110,7 @@ public class FragmentSearch extends Fragment {
                     recyclerView.setAdapter(searchAdapter);
                     textView.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     recyclerView.setVisibility(View.GONE);
                     textView.setVisibility(View.VISIBLE);
                 }
