@@ -8,19 +8,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#1A2D31">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/artistImg"
+        android:background="#0e181a">
+        <ImageView
+            android:id="@+id/genreImg"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/ns1"
+            android:src="@drawable/cd1"
             android:layout_margin="10dp">
-        </de.hdodenhof.circleimageview.CircleImageView>
+        </ImageView>
         <TextView
-            android:id="@+id/artistText"
+            android:id="@+id/genreText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Đen Vâu"
+            android:text="K-pop"
             android:textSize="25dp"
             android:layout_margin="10dp"
             android:textColor="@color/white">
