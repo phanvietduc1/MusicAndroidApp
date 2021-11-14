@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         anhxa();
         init();
 
-        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+        Intent i = new Intent(MainActivity.this, LoginActivity.class);
         Thread thread = new Thread()
         {
             @Override

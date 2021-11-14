@@ -39,7 +39,7 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
 
     @Override
     public void onBindViewHolder(@NonNull ListGenreAdapter.CustomViewHolder holder, int position) {
-        Picasso.with(context).load(genreList.get(position).getHinhChuDe()).into(holder.genreImageView);
+        Picasso.get(/*context*/).load(genreList.get(position).getHinhChuDe()).into(holder.genreImageView);
         holder.genreTextView.setText(genreList.get(position).getTenChuDe());
         Log.d("genrename", (genreList.get(position).getTenChuDe()));
     }
