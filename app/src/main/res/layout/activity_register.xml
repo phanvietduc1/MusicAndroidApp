@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:layout_gravity="center"
-    android:background="@drawable/bgr_login">
+    android:background="@drawable/login_wallpaper"
+    android:scaleType="centerCrop">
 
     <LinearLayout
         android:layout_width="match_parent"

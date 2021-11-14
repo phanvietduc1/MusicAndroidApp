@@ -36,16 +36,16 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
-        mainViewPageAdapter.addFragment(new FragmentHome(), "Home");
-        mainViewPageAdapter.addFragment(new FragmentSearch(), "Search");
-        mainViewPageAdapter.addFragment(new FragmentLibrary(), "Library");
-        mainViewPageAdapter.addFragment(new FragmentSetting(), "AAA");
+        mainViewPageAdapter.addFragment(new FragmentHome(), null);
+        mainViewPageAdapter.addFragment(new FragmentSearch(), null);
+        mainViewPageAdapter.addFragment(new FragmentLibrary(), null);
+        mainViewPageAdapter.addFragment(new FragmentSetting(), null);
         
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
         tabLayout.getTabAt(1).setIcon(R.drawable.icontimkiem);
         tabLayout.getTabAt(2).setIcon(R.drawable.iconthuvien);
-        tabLayout.getTabAt(3).setIcon(R.drawable.iconlogo);
+        tabLayout.getTabAt(3).setIcon(R.drawable.iconsetting);
     }
 }
