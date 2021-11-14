@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         mainViewPageAdapter.addFragment(new FragmentSearch(), "Search");
         mainViewPageAdapter.addFragment(new FragmentLibrary(), "Library");
         mainViewPageAdapter.addFragment(new FragmentSetting(), "AAA");
+        
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
