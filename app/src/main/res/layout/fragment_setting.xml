@@ -77,6 +77,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="#3ffa"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
