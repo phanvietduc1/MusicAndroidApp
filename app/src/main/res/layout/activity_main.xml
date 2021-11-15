@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A2D31"
+    android:background="@drawable/login_wallpaper"
     tools:context=".activity.MainActivity">
 
     <LinearLayout
@@ -16,9 +16,9 @@
     <ImageView
         android:id="@+id/icon_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_below="@+id/l1"
-        android:src="@drawable/music3" />
+        android:src="@drawable/music_a" />
 
     <LinearLayout
         android:id="@+id/l2"
@@ -35,8 +35,9 @@
                 android:id="@+id/app_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Music App"
+                android:text="@string/app_name"
                 android:textAlignment="center"
+                android:layout_marginTop="30dp"
                 android:textColor="@android:color/white"
                 android:textSize="60sp" />
 
@@ -45,8 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/app_title"
-                android:layout_marginTop="10dp"
-                android:text="Enjoying..."
+                android:layout_marginTop="220dp"
+                android:text="Loading..."
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"

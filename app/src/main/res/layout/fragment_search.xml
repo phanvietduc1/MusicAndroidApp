@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#001417">
+    android:background="@drawable/login_wallpaper">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayouttimkiem"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="45dp"
         android:layout_marginRight="15dp"
         android:background="@color/white">
 
@@ -22,7 +22,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:collapseIcon="?attr/actionModeCloseDrawable"
-            app:title="Find Your Song"
+            app:title="Click on glass icon to search"
             app:titleTextColor="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 

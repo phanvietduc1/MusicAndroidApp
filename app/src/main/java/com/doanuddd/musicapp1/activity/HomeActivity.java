@@ -1,8 +1,12 @@
 package com.doanuddd.musicapp1.activity;
 
+import static com.doanuddd.musicapp1.R.color.mautrongsuot;
+
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.doanuddd.musicapp1.R;
@@ -29,11 +33,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void anhxa(){
-        // hello
         tabLayout = findViewById(R.id.myTabLayout);
         viewPager = findViewById(R.id.myViewPager);
     }
 
+    @SuppressLint("ResourceAsColor")
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         mainViewPageAdapter.addFragment(new FragmentHome(), null);
