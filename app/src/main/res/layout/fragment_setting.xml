@@ -53,7 +53,7 @@
                 android:id="@+id/textViewRadioName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Khang"
+                android:text="Your profile"
                 android:textColor="@color/colorWhite"
                 android:textSize="20dp"
                 tools:text="user's name" />
