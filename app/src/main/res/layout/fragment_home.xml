@@ -43,7 +43,7 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/arimo_bold"
-                    android:text="Explore your genres"
+                    android:text="Explore your goo music"
                     android:textColor="#FFFFFF"
                     android:textSize="28sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -63,18 +63,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:fontFamily="@font/arimo_bold"
-                        android:text="Danh Sách Bài Hát"
+                        android:text="Songs you might like"
                         android:textColor="#FFFFFF"
-                        android:textSize="28sp"
+                        android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:scrollbars="none"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtplaylist">
@@ -97,16 +97,16 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
                         android:fontFamily="@font/arimo_bold"
-                        android:text="Danh Sách Nghệ Sĩ"
+                        android:text="Best of artists"
                         android:textColor="#FFFFFF"
-                        android:textSize="28sp"
+                        android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.core.widget.NestedScrollView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:scrollbars="none"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtnghesi">
@@ -128,9 +128,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
                         android:fontFamily="@font/arimo_bold"
-                        android:text="Danh Sách Chủ Đề"
+                        android:text="Genres List"
                         android:textColor="#FFFFFF"
-                        android:textSize="28sp"
+                        android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
