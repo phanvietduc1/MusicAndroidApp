@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/mautrongsuot"
     app:cardCornerRadius="10dp"
-    app:cardElevation="3dp"
+    app:cardElevation="1dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"

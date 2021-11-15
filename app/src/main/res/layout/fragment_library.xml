@@ -23,6 +23,7 @@
                 android:src="@drawable/imgitem"
                 app:civ_border_color="#FFFFFF"
                 app:civ_border_width="2dp"/>
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -30,9 +31,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@id/imageviewuserthuvien"
-                android:text="Thư viện"
+                android:text="Your Library"
                 android:textColor="#FFFEFE"
-                android:textSize="36sp"/>
+                android:textSize="36sp" />
             <ImageView
                 android:id="@+id/idaddthuvien"
                 android:layout_width="35dp"
@@ -97,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Playlist gợi ý"
+                android:text="Playlist"
                 android:textSize="36sp"
                 android:textColor="@color/white"
                 android:layout_marginStart="10dp">

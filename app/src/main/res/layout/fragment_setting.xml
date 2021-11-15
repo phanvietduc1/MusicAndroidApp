@@ -8,14 +8,24 @@
     android:background="@drawable/login_wallpaper"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/music_a"
+        tools:ignore="ExtraText">
+    </ImageView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:drawableLeft="@drawable/settings_24"
-        android:drawablePadding="10dp"
+        android:layout_gravity="center"
         android:fontFamily="@font/arimo_bold"
-        android:text="Tùy chọn"
+        android:text="Your name"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -53,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"
-                android:text="Xem profile"
+                android:text="See detail"
                 android:textColor="@color/colorWhite"
                 android:textSize="15dp"
                 tools:text="Xem profile" />
@@ -70,6 +80,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:padding="6dp"
+            android:layout_marginRight="20dp"
             app:srcCompat="@drawable/angleright"
             app:tint="@color/white" />
 
@@ -77,21 +88,45 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#3ffa"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Đăng xuất"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
-            tools:text="Đăng xuất" />
+            android:text="   Notification" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_notifications_black_24dp"
+            app:tint="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="    Log out"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"

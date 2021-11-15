@@ -47,9 +47,9 @@ public class HomeActivity extends AppCompatActivity {
         
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
-        tabLayout.getTabAt(1).setIcon(R.drawable.icontimkiem);
-        tabLayout.getTabAt(2).setIcon(R.drawable.iconthuvien);
-        tabLayout.getTabAt(3).setIcon(R.drawable.iconsetting);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_search);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_lib);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_setting);
     }
 }
