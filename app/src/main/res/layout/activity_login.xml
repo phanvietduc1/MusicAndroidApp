@@ -20,15 +20,15 @@
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="wrap_content"
+            android:layout_width="370dp"
             android:layout_height="47dp"
             android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/lobster_legular"
-            android:text="Hello"
-            android:textColor="@color/black"
+            android:text="Login with your account"
+            android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,16 +40,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome To My Music World!"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/white"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="#C0C0C0"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -69,9 +71,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="#C0C0C0"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_email">
@@ -94,20 +98,20 @@
             android:layout_marginTop="10dp"
             android:text="Sigin with your account"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_password" />
 
         <Button
             android:id="@+id/button_login"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape_bgr_button"
+            android:background="@drawable/bordered_button"
             android:text="@string/login"
             android:textColor="@color/white"
-            app:backgroundTint="@color/black"
+            app:backgroundTint="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_reset" />
@@ -120,7 +124,7 @@
             android:layout_marginTop="40dp"
             android:text="Go to Register"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_login" />

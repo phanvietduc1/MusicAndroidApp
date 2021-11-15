@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_wallpaper"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/settings_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/arimo_bold"
+        android:text="Tùy chọn"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewRadioAvatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/music_a" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageViewFavoriteAction"
+            android:layout_toRightOf="@+id/imageViewRadioAvatar"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewRadioName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khang"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"
+                tools:text="user's name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewRadioBand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:text="Xem profile"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                tools:text="Xem profile" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewFavoriteAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="6dp"
+            app:srcCompat="@drawable/angleright"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Đăng xuất"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            tools:text="Đăng xuất" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="6dp"
+            app:srcCompat="@drawable/signout24"
+            app:tint="@color/white" />
+    </RelativeLayout>
+</LinearLayout>
