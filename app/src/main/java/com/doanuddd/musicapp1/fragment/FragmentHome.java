@@ -104,7 +104,6 @@ public class FragmentHome extends Fragment {
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 ArrayList<Song> songArrayList = (ArrayList<Song>) response.body();
                 listSongAdapter = new ListSongAdapter(songArrayList, getActivity());
-//                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 listSongView.setLayoutManager(linearLayoutManager);

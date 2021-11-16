@@ -1,10 +1,13 @@
 package com.doanuddd.musicapp1.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Song {
+public class Song implements Parcelable {
     @SerializedName("_id")
     @Expose
     private String id;
@@ -106,5 +109,25 @@ public class Song {
 
     public void setTenBaiHat(String tenBaiHat) {
         this.tenBaiHat = tenBaiHat;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int i) {
+
+        dest.writeInt(idAlbum);
+        dest.writeInt(idBaiHat);
+        dest.writeInt(idPlayList);
+        dest.writeInt(idTheLoai);
+        dest.writeInt(luotThich);
+
+        dest.writeString(caSi);
+        dest.writeString(hinhBaiHat);
+        dest.writeString(tenBaiHat);
+        dest.writeString(linkBaiHat);
     }
 }

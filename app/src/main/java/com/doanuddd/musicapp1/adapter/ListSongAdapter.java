@@ -1,7 +1,7 @@
 package com.doanuddd.musicapp1.adapter;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.CustomViewHolder> {
 
-    private List<Song> songList;
+    private ArrayList<Song> songList;
     Context context;
 
-    public ListSongAdapter(List<Song> songList, Context context) {
+    public ListSongAdapter(ArrayList<Song> songList, Context context) {
         this.songList = songList;
         this.context = context;
     }
@@ -41,7 +42,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
         Picasso.get(/*context*/).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
         holder.songTextView.setText(songList.get(position).getTenBaiHat());
 
-        Log.d("aa", holder.songTextView.getText().toString());
+//        holder.
     }
 
     @Override
@@ -58,6 +59,15 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
 
             songImageView = itemView.findViewById(R.id.songImg);
             songTextView = itemView.findViewById(R.id.songText);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, PlayingMusicActivity.class);
+                    intent.putExtra("ca khuc", songList.get(getAdapterPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
