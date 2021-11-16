@@ -1,12 +1,8 @@
 package com.doanuddd.musicapp1.activity;
 
-import static com.doanuddd.musicapp1.R.color.mautrongsuot;
-
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.doanuddd.musicapp1.R;
@@ -33,23 +29,23 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void anhxa(){
+        // hello
         tabLayout = findViewById(R.id.myTabLayout);
         viewPager = findViewById(R.id.myViewPager);
     }
 
-    @SuppressLint("ResourceAsColor")
     private void init(){
         MainViewPageAdapter mainViewPageAdapter = new MainViewPageAdapter(getSupportFragmentManager());
-        mainViewPageAdapter.addFragment(new FragmentHome(), null);
-        mainViewPageAdapter.addFragment(new FragmentSearch(), null);
-        mainViewPageAdapter.addFragment(new FragmentLibrary(), null);
-        mainViewPageAdapter.addFragment(new FragmentSetting(), null);
+        mainViewPageAdapter.addFragment(new FragmentHome(), "Home");
+        mainViewPageAdapter.addFragment(new FragmentSearch(), "Search");
+        mainViewPageAdapter.addFragment(new FragmentLibrary(), "Library");
+        mainViewPageAdapter.addFragment(new FragmentSetting(), "AAA");
         
         viewPager.setAdapter(mainViewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_search);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_lib);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_setting);
+        tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
+        tabLayout.getTabAt(1).setIcon(R.drawable.icontimkiem);
+        tabLayout.getTabAt(2).setIcon(R.drawable.iconthuvien);
+        tabLayout.getTabAt(3).setIcon(R.drawable.iconlogo);
     }
 }

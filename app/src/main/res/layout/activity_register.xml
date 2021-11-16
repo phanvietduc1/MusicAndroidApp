@@ -5,15 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:layout_gravity="center"
-    android:background="@drawable/login_wallpaper"
-    android:scaleType="centerCrop">
+    android:background="@drawable/bgr_login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="#3fff"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +23,13 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="100dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/lobster_legular"
-            android:text="Create Your Account"
-            android:textColor="@color/white"
+            android:text="Register"
+            android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,22 +40,19 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/white"
+            android:text="Create your new account here!"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="50dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#C0C0C0"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -64,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/underlined_input_text"
                 android:hint="@string/hint_name"
-                android:textColor="@color/white"
                 android:inputType="textPersonName"
                 android:padding="20dp" />
 
@@ -75,12 +72,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColorHint="#C0C0C0"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_name">
@@ -90,8 +85,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/underlined_input_text"
                 android:hint="@string/hint_email"
-                android:textColor="@color/white"
-
                 android:inputType="textEmailAddress"
                 android:padding="20dp" />
 
@@ -102,12 +95,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColorHint="#C0C0C0"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_email"
@@ -118,7 +109,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/underlined_input_text"
                 android:hint="@string/hint_password"
-                android:textColor="@color/white"
                 android:inputType="textPassword"
                 android:padding="20dp" />
 
@@ -126,14 +116,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_register"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/bordered_button"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_bgr_button"
             android:text="@string/register"
             android:textColor="@color/white"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_password" />
@@ -146,7 +135,7 @@
             android:layout_marginTop="40dip"
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_register" />

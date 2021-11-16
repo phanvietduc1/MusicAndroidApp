@@ -1,7 +1,5 @@
 package com.doanuddd.musicapp1.fragment;
 
-import static com.doanuddd.musicapp1.R.color.mautrongsuot;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -94,10 +92,9 @@ public class FragmentSearch extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                toolbar.setTitleTextColor(Color.BLACK);
-                toolbar.setTitle("Find");
+                toolbar.setTitleTextColor(Color.WHITE);
 
-                recyclerView.setBackgroundColor(Color.TRANSPARENT);
+                recyclerView.setBackgroundColor(Color.BLACK);
                 if (!newText.trim().equals("")){
                     SearchSong(newText);
                 }

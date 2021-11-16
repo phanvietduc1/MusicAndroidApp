@@ -2,6 +2,7 @@ package com.doanuddd.musicapp1.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.DanhsachbaihatActivity;
 import com.doanuddd.musicapp1.model.Genre;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.CustomViewHolder> {
 
     private List<Genre> genreList;
     Context context;
+    View view;
 
     public ListGenreAdapter(List<Genre> genreList, Context context) {
         this.genreList = genreList;
@@ -32,7 +36,7 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
     @Override
     public ListGenreAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.row_genre, parent, false);
+        view = inflater.inflate(R.layout.row_genre, parent, false);
 
         return new ListGenreAdapter.CustomViewHolder(view);
     }
@@ -42,6 +46,13 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
         Picasso.get(/*context*/).load(genreList.get(position).getHinhChuDe()).into(holder.genreImageView);
         holder.genreTextView.setText(genreList.get(position).getTenChuDe());
         Log.d("genrename", (genreList.get(position).getTenChuDe()));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DanhsachbaihatActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

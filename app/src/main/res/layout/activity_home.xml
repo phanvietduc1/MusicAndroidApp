@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_wallpaper"
+    android:background="#000"
     android:orientation="vertical"
     tools:context=".activity.HomeActivity">
 
@@ -18,7 +18,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@color/mautrongsuot" />
+            android:background="#FFF" />
     </androidx.viewpager.widget.ViewPager>
 
 <!--android:background="@drawable/bgr_maintab"-->
@@ -26,7 +26,7 @@
         android:id="@+id/myTabLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/mau_cua_app"
+        android:background="@drawable/bgr_maintab"
         app:tabIconTint="@color/white"
         app:tabIndicatorColor="#FFFFFF"
         app:tabIndicatorGravity="top"

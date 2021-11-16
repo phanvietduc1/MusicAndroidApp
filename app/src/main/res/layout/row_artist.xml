@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/mautrongsuot"
-    app:cardElevation="1dp"
-    app:cardCornerRadius="10dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    android:id="@+id/artistCard">
-
+    android:layout_marginLeft="10dp">
     <LinearLayout
-        android:layout_width="170dp"
-        android:layout_height="270dp"
-        android:orientation="vertical">
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#1A2D31">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/artistImg"
             android:layout_width="150dp"
@@ -32,4 +26,26 @@
             android:textColor="@color/white">
         </TextView>
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
