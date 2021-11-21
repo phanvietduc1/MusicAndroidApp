@@ -29,6 +29,7 @@ public class ApiClient {
                 .client(getUnsafeOkHttpClient())
                 .build();
     }
+
     public static ApiClient self() {
         if (mInstance == null)
             mInstance = new ApiClient();
