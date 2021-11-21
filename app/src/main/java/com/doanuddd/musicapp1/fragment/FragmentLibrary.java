@@ -87,7 +87,16 @@ public class FragmentLibrary extends Fragment {
     public void getMusic(){
         ContentResolver contentResolver = getActivity().getContentResolver();
         Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        Cursor songCursor = contentResolver.query(songUri,null,null,null,null);
+        String[] projection = {
+                MediaStore.Audio.Media._ID,
+                MediaStore.Audio.Media.ARTIST,
+                MediaStore.Audio.Media.TITLE,
+                MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media.DISPLAY_NAME,
+                MediaStore.Audio.Media.ALBUM_ID,
+                MediaStore.Audio.Media.DURATION
+        };
+        Cursor songCursor = contentResolver.query(songUri,projection, MediaStore.Audio.Media.DATA + " like ? ", new String[]{"%Download%"},null);
         if (songCursor!=null && songCursor.moveToFirst()){
             int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
             int songArtist = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
