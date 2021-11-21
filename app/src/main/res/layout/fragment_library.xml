@@ -33,6 +33,7 @@
                 android:layout_toRightOf="@id/imageviewuserthuvien"
                 android:text="Your Library"
                 android:textColor="#FFFEFE"
+                android:textStyle="bold"
                 android:textSize="36sp" />
             <ImageView
                 android:id="@+id/idaddthuvien"
@@ -50,6 +51,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Playlist"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp">
+            </TextView>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,95 +108,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Playlist"
-                android:textSize="36sp"
+                android:text="My Music"
+                android:textSize="30sp"
                 android:textColor="@color/white"
                 android:layout_marginStart="10dp">
             </TextView>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="105dp"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_margin="5dp">
-                    <ImageView
-                        android:id="@+id/roundedImageView1"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/pl1"
-                        android:background="@color/white"
-                        android:scaleType="centerCrop" />
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:text="Sơn Tùng MTP Radio"
-                    android:gravity="center">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="105dp"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_margin="5dp">
-                    <ImageView
-                        android:id="@+id/roundedImageView2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/pl2"
-                        android:background="@color/white"
-                        android:scaleType="centerCrop" />
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:text="Trịnh Thăng Bình Radio"
-                    android:gravity="center">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="105dp"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_margin="5dp">
-                    <ImageView
-                        android:id="@+id/roundedImageView3"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/pl3"
-                        android:background="@color/white"
-                        android:scaleType="centerCrop" />
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:text="Lê Bảo Bình Radio"
-                    android:gravity="center">
-                </TextView>
-            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewtv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/appbarlayouttimkiem"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

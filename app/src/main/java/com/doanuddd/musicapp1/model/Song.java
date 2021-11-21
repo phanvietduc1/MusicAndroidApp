@@ -1,6 +1,8 @@
 package com.doanuddd.musicapp1.model;
 
 
+import android.graphics.Bitmap;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -35,6 +37,9 @@ public class Song {
     @SerializedName("tenBaiHat")
     @Expose
     private String tenBaiHat;
+    @SerializedName("hinhBaiHatBit")
+    @Expose
+    private Bitmap hinhBaiHatBit;
 
     public String getCaSi() {
         return caSi;
@@ -106,5 +111,13 @@ public class Song {
 
     public void setTenBaiHat(String tenBaiHat) {
         this.tenBaiHat = tenBaiHat;
+    }
+
+    public Bitmap getHinhBaiHatBit() {
+        return hinhBaiHatBit;
+    }
+
+    public void setHinhBaiHatBit(Bitmap hinhBaiHatBit) {
+        this.hinhBaiHatBit = hinhBaiHatBit;
     }
 }
