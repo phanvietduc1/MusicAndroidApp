@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/login_wallpaper"
-    tools:context=".activity.PlayMusicActivity">
+    tools:context=".activity.PlayingMusicActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerdianhac"
         android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -186,7 +186,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:subtitleTextColor="#000000"
-        app:titleTextColor="#000000" />
+        app:subtitleTextColor="#FFFFFF"
+        app:titleTextColor="#FFFFFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

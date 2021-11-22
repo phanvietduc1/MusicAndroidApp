@@ -2,6 +2,7 @@ package com.doanuddd.musicapp1.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.HomeActivity;
+import com.doanuddd.musicapp1.activity.LoginActivity;
 import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
 import com.squareup.picasso.Picasso;
@@ -22,6 +25,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
 
     private ArrayList<Song> songList;
     Context context;
+    View view;
 
     public ListSongAdapter(ArrayList<Song> songList, Context context) {
         this.songList = songList;
@@ -32,7 +36,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_song, parent, false);
+        view = inflater.inflate(R.layout.row_song, parent, false);
 
         return new CustomViewHolder(view);
     }
@@ -42,7 +46,15 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
         Picasso.get(/*context*/).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
         holder.songTextView.setText(songList.get(position).getTenBaiHat());
 
-//        holder.
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("aa", holder.songTextView.getText().toString());
+
+                Intent i = new Intent(context, PlayingMusicActivity.class);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
