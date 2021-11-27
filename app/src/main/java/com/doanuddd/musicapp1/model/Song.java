@@ -111,6 +111,44 @@ public class Song implements Parcelable {
         this.tenBaiHat = tenBaiHat;
     }
 
+    public Song(String id, int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi, String linkBaiHat, Integer luotThich, Integer idTheLoai, Integer idPlayList, Integer idAlbum) {
+        this.id = id;
+        this.idBaiHat = idBaiHat;
+        this.tenBaiHat = tenBaiHat;
+        this.hinhBaiHat = hinhBaiHat;
+        this.caSi = tenCaSi;
+        this.linkBaiHat = linkBaiHat;
+        this.luotThich = luotThich;
+        this.idTheLoai = idTheLoai;
+        this.idPlayList = idPlayList;
+        this.idAlbum = idAlbum;
+    }
+
+    protected Song(Parcel in) {
+        id = in.readString();
+        caSi = in.readString();
+        hinhBaiHat = in.readString();
+        idAlbum = in.readInt();
+        idBaiHat = in.readInt();
+        idPlayList = in.readInt();
+        idTheLoai = in.readInt();
+        linkBaiHat = in.readString();
+        luotThich = in.readInt();
+        tenBaiHat = in.readString();
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
+
     @Override
     public int describeContents() {
         return 0;
@@ -118,16 +156,15 @@ public class Song implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int i) {
-
+        dest.writeString(id);
+        dest.writeString(caSi);
+        dest.writeString(hinhBaiHat);
         dest.writeInt(idAlbum);
         dest.writeInt(idBaiHat);
         dest.writeInt(idPlayList);
         dest.writeInt(idTheLoai);
-        dest.writeInt(luotThich);
-
-        dest.writeString(caSi);
-        dest.writeString(hinhBaiHat);
-        dest.writeString(tenBaiHat);
         dest.writeString(linkBaiHat);
+        dest.writeInt(luotThich);
+        dest.writeString(tenBaiHat);
     }
 }

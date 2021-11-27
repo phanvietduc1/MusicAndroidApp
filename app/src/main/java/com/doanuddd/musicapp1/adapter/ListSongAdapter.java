@@ -49,10 +49,10 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("aa", holder.songTextView.getText().toString());
-
+                Log.d("click song", holder.songTextView.getText().toString());
                 Intent i = new Intent(context, PlayingMusicActivity.class);
-                context.startActivity(i);
+                i.putExtra("cakhuc", songList.get(position));
+                view.getContext().startActivity(i);
             }
         });
     }
@@ -72,14 +72,6 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
             songImageView = itemView.findViewById(R.id.songImg);
             songTextView = itemView.findViewById(R.id.songText);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, PlayingMusicActivity.class);
-                    intent.putExtra("ca khuc", songList.get(getAdapterPosition()));
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 }
