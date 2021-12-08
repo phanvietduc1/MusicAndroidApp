@@ -1,18 +1,13 @@
 package com.doanuddd.musicapp1.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.adapter.MainViewPageAdapter;
-import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,18 +22,15 @@ public class MainActivity extends AppCompatActivity {
         anhxa();
         init();
 
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
-        Thread thread = new Thread()
-        {
+        Intent i = new Intent(MainActivity.this, ForgetPasswordActivity.class);
+        Thread thread = new Thread() {
             @Override
-            public void run(){
+            public void run() {
                 try {
                     sleep(1000); // 5 second
-                }
-                catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     startActivity(i);
                     finish();
                 }
@@ -47,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
     }
 
-    private void anhxa(){
+    private void anhxa() {
         L1 = (LinearLayout) findViewById(R.id.l1);
         L2 = (LinearLayout) findViewById(R.id.l2);
         app_tag = (TextView) findViewById(R.id.app_tag);
     }
 
-    private void init(){
+    private void init() {
 
     }
 }
