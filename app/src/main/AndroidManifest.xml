@@ -27,6 +27,9 @@
             android:name=".activity.LoginActivity"
             android:exported="true" />
         <activity
+            android:name=".activity.OtpActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
