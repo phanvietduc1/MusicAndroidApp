@@ -25,4 +25,7 @@ public interface UserApi {
 //    @FormUrlEncoded
     @POST("api/user/register")
     Call<User> register(@Body User user);
+
+    @POST("api/user/confirmOtp")
+    Call<User> confirmOtp(@Body User user);
 }

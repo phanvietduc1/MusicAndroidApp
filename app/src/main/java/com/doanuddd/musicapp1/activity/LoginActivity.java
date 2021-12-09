@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void otpConfirm(User user){
-        if (user.getIsConfirmed() == "1") {
+        if (user.getIsConfirmed().equals("1")) {
             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(i);
             Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();

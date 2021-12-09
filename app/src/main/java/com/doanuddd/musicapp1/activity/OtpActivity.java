@@ -1,9 +1,11 @@
 package com.doanuddd.musicapp1.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.model.Song;
+import com.doanuddd.musicapp1.model.User;
+import com.doanuddd.musicapp1.retrofit.ApiClient;
+import com.doanuddd.musicapp1.retrofit.UserApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OtpActivity extends AppCompatActivity {
 
@@ -22,6 +31,9 @@ public class OtpActivity extends AppCompatActivity {
     TextView sendToEmail;
 
     String otp;
+    String email;
+
+    ProgressDialog LoadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +47,11 @@ public class OtpActivity extends AppCompatActivity {
 
         sendToEmail = findViewById(R.id.sendToEmail);
 
+        LoadingBar = new ProgressDialog(this);
+        LoadingBar.setTitle("Confirm Otp");
+        LoadingBar.setMessage("Please wait");
+        LoadingBar.setCanceledOnTouchOutside(false);
+
         init();
 
         Intent intent = getIntent();
@@ -44,7 +61,8 @@ public class OtpActivity extends AppCompatActivity {
                 otp = intent.getStringExtra("otp");
             }
             if (intent.hasExtra("email")) {
-                sendToEmail.setText("Please type the verification code sent\nto " + intent.getStringExtra("email"));
+                email = intent.getStringExtra("email");
+                sendToEmail.setText("Please type the verification code sent\nto " + email);
             }
         }
     }
@@ -118,11 +136,9 @@ public class OtpActivity extends AppCompatActivity {
                 if (otp4.getText().toString().length() == 1) {
                     String localOtp = otp1.getText().toString()  + otp2.getText().toString() + otp3.getText().toString() + otp4.getText().toString();
                     if (localOtp.equals(otp)) {
-                        Intent i = new Intent(OtpActivity.this, HomeActivity.class);
-                        startActivity(i);
-                        Toast.makeText(OtpActivity.this, "Confirm Otp", Toast.LENGTH_SHORT).show();
+                        postOtp();
                     } else {
-                        Toast.makeText(OtpActivity.this, "Wrong Otp", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OtpActivity.this, "Wrong otp", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -130,6 +146,39 @@ public class OtpActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+    }
+
+    private void postOtp(){
+        LoadingBar.show();
+
+        User u = new User();
+        u.setEmail(email);
+        u.setOtp(otp);
+
+        UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
+        Call<User> call = userApi.confirmOtp(u);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    Intent i = new Intent(OtpActivity.this, HomeActivity.class);
+                    startActivity(i);
+                    Toast.makeText(OtpActivity.this, "Confirm Otp", Toast.LENGTH_SHORT).show();
+
+                    LoadingBar.dismiss();
+                }
+                else {
+                    LoadingBar.dismiss();
+                    Toast.makeText(OtpActivity.this, "Respone fail", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("toang",t.getMessage());
+                LoadingBar.dismiss();
+                Toast.makeText(OtpActivity.this, "System Error", Toast.LENGTH_SHORT).show();
             }
         });
     }
