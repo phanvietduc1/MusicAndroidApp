@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         anhxa();
         init();
 
-        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+        Intent i = new Intent(MainActivity.this, PlaylistActivity.class);
         Thread thread = new Thread()
         {
             @Override

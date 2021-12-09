@@ -34,6 +34,9 @@
             android:name=".activity.ForgetPasswordActivity"
             android:exported="true" />
         <activity
+            android:name=".activity.PlaylistActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
