@@ -17,27 +17,35 @@ public class Song implements Parcelable {
     @SerializedName("hinhBaiHat")
     @Expose
     private String hinhBaiHat;
-    @SerializedName("idAlbum")
-    @Expose
-    private Integer idAlbum;
     @SerializedName("idBaiHat")
     @Expose
-    private Integer idBaiHat;
+    private String idBaiHat;
     @SerializedName("idPlayList")
     @Expose
-    private Integer idPlayList;
+    private String idPlayList;
     @SerializedName("idTheLoai")
     @Expose
-    private Integer idTheLoai;
+    private String idTheLoai;
     @SerializedName("linkBaiHat")
     @Expose
     private String linkBaiHat;
     @SerializedName("luotThich")
     @Expose
-    private Integer luotThich;
+    private String luotThich;
     @SerializedName("tenBaiHat")
     @Expose
     private String tenBaiHat;
+    @SerializedName("idNgheSi")
+    @Expose
+    private String idNgheSi;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCaSi() {
         return caSi;
@@ -55,35 +63,27 @@ public class Song implements Parcelable {
         this.hinhBaiHat = hinhBaiHat;
     }
 
-    public Integer getIdAlbum() {
-        return idAlbum;
-    }
-
-    public void setIdAlbum(Integer idAlbum) {
-        this.idAlbum = idAlbum;
-    }
-
-    public Integer getIdBaiHat() {
+    public String getIdBaiHat() {
         return idBaiHat;
     }
 
-    public void setIdBaiHat(Integer idBaiHat) {
+    public void setIdBaiHat(String idBaiHat) {
         this.idBaiHat = idBaiHat;
     }
 
-    public Integer getIdPlayList() {
+    public String getIdPlayList() {
         return idPlayList;
     }
 
-    public void setIdPlayList(Integer idPlayList) {
+    public void setIdPlayList(String idPlayList) {
         this.idPlayList = idPlayList;
     }
 
-    public Integer getIdTheLoai() {
+    public String getIdTheLoai() {
         return idTheLoai;
     }
 
-    public void setIdTheLoai(Integer idTheLoai) {
+    public void setIdTheLoai(String idTheLoai) {
         this.idTheLoai = idTheLoai;
     }
 
@@ -95,11 +95,11 @@ public class Song implements Parcelable {
         this.linkBaiHat = linkBaiHat;
     }
 
-    public Integer getLuotThich() {
+    public String getLuotThich() {
         return luotThich;
     }
 
-    public void setLuotThich(Integer luotThich) {
+    public void setLuotThich(String luotThich) {
         this.luotThich = luotThich;
     }
 
@@ -111,7 +111,15 @@ public class Song implements Parcelable {
         this.tenBaiHat = tenBaiHat;
     }
 
-    public Song(String id, int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi, String linkBaiHat, Integer luotThich, Integer idTheLoai, Integer idPlayList, Integer idAlbum) {
+    public String getIdNgheSi() {
+        return idNgheSi;
+    }
+
+    public void setIdNgheSi(String idNgheSi) {
+        this.idNgheSi = idNgheSi;
+    }
+
+    public Song(String id, String idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi, String linkBaiHat, String luotThich, String idTheLoai, String idPlayList, String idNgheSi) {
         this.id = id;
         this.idBaiHat = idBaiHat;
         this.tenBaiHat = tenBaiHat;
@@ -121,19 +129,19 @@ public class Song implements Parcelable {
         this.luotThich = luotThich;
         this.idTheLoai = idTheLoai;
         this.idPlayList = idPlayList;
-        this.idAlbum = idAlbum;
+        this.idNgheSi = idNgheSi;
     }
 
     protected Song(Parcel in) {
         id = in.readString();
         caSi = in.readString();
         hinhBaiHat = in.readString();
-        idAlbum = in.readInt();
-        idBaiHat = in.readInt();
-        idPlayList = in.readInt();
-        idTheLoai = in.readInt();
+        idNgheSi = in.readString();
+        idBaiHat = in.readString();
+        idPlayList = in.readString();
+        idTheLoai = in.readString();
         linkBaiHat = in.readString();
-        luotThich = in.readInt();
+        luotThich = in.readString();
         tenBaiHat = in.readString();
     }
 
@@ -159,12 +167,12 @@ public class Song implements Parcelable {
         dest.writeString(id);
         dest.writeString(caSi);
         dest.writeString(hinhBaiHat);
-        dest.writeInt(idAlbum);
-        dest.writeInt(idBaiHat);
-        dest.writeInt(idPlayList);
-        dest.writeInt(idTheLoai);
+        dest.writeString(idNgheSi);
+        dest.writeString(idBaiHat);
+        dest.writeString(idPlayList);
+        dest.writeString(idTheLoai);
         dest.writeString(linkBaiHat);
-        dest.writeInt(luotThich);
+        dest.writeString(luotThich);
         dest.writeString(tenBaiHat);
     }
 }
