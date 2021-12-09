@@ -182,4 +182,11 @@ public class Song implements Parcelable {
         dest.writeString(tenBaiHat);
     }
 
+    public Bitmap getHinhBaiHatBit() {
+        return hinhBaiHatBit;
+    }
+
+    public void setHinhBaiHatBit(Bitmap hinhBaiHatBit) {
+        this.hinhBaiHatBit = hinhBaiHatBit;
+    }
 }
