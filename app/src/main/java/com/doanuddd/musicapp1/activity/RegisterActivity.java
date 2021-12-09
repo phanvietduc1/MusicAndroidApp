@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout inputName, inputPhone, inputPassword;
     String phone, name, password;
     ProgressDialog LoadingBar;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +85,29 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void CreateNewAccount(String email, String password, String name) {
+    private int Validate(String email, String password, String name){
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
             Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+        if (email.trim().matches(emailPattern)) {
         } else {
+            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+        if (password.length()<6){
+            Toast.makeText(getApplicationContext(),"Password must be longer than 6 characters",Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+        return 1;
+    }
+
+
+    private void CreateNewAccount(String email, String password, String name) {
+        if (Validate(email,password,name)==1) {
             LoadingBar.show();
 
             User u = new User();

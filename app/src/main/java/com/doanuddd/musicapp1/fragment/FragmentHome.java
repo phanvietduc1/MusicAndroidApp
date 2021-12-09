@@ -2,11 +2,15 @@ package com.doanuddd.musicapp1.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -73,6 +77,12 @@ public class FragmentHome extends Fragment {
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
     private void anhxa() {
         listSongView = view.findViewById(R.id.viewListSong);
         listArtistView = view.findViewById(R.id.viewListArtist);
@@ -104,17 +114,15 @@ public class FragmentHome extends Fragment {
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 ArrayList<Song> songArrayList = (ArrayList<Song>) response.body();
                 listSongAdapter = new ListSongAdapter(songArrayList, getActivity());
-//                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 listSongView.setLayoutManager(linearLayoutManager);
                 listSongView.setAdapter(listSongAdapter);
-
             }
 
             @Override
             public void onFailure(Call<List<Song>> call, Throwable t) {
-
+                Log.d("tag", "fail");
             }
         });
 

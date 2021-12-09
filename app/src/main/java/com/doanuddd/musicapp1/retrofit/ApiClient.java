@@ -21,7 +21,7 @@ public class ApiClient {
     public Retrofit retrofit;
 
     private ApiClient() {
-        String baseUrl = "http://20.212.8.199/:1111/";
+        String baseUrl = "http://20.212.8.199:1111";
         Log.e("BaseURL", baseUrl);
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -29,6 +29,7 @@ public class ApiClient {
                 .client(getUnsafeOkHttpClient())
                 .build();
     }
+
     public static ApiClient self() {
         if (mInstance == null)
             mInstance = new ApiClient();
