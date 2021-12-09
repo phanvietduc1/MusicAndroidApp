@@ -2,6 +2,7 @@ package com.doanuddd.musicapp1.retrofit;
 
 import android.util.Log;
 
+import com.doanuddd.musicapp1.model.Keyword;
 import com.doanuddd.musicapp1.model.User;
 
 import java.util.List;
@@ -28,4 +29,7 @@ public interface UserApi {
 
     @POST("api/user/confirmOtp")
     Call<User> confirmOtp(@Body User user);
+
+    @POST("api/user/resetPassword")
+    Call<User> resetPassword(@Body Keyword keyword);
 }

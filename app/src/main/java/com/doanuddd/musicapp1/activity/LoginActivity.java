@@ -39,7 +39,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private MaterialButton btnLogin, btnLinkToRegister, btnForgotPass;
+    private MaterialButton btnLogin, btnLinkToRegister, btnForgot;
     private TextInputLayout inputPhone, inputPassword;
     String email, password;
     String userPassword;
@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.edit_password);
         btnLinkToRegister = findViewById(R.id.button_register);
         btnLogin = findViewById(R.id.button_login);
+        btnForgot = findViewById(R.id.button_forget);
 
         LoadingBar.setTitle("Login Account");
         LoadingBar.setMessage("Please wait");
@@ -114,9 +115,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         btnLinkToRegister.setOnClickListener(view -> {
-           Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(i);
-          finish();
+            finish();
+        });
+        btnForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                startActivity(i);
+                finish();
+            }
         });
     }
 
