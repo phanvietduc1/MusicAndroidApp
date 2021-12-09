@@ -1,6 +1,7 @@
 package com.doanuddd.musicapp1.model;
 
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -38,6 +39,11 @@ public class Song implements Parcelable {
     @SerializedName("idNgheSi")
     @Expose
     private String idNgheSi;
+    private Bitmap hinhBaiHatBit;
+
+    public Song() {
+
+    }
 
     public String getId() {
         return id;
@@ -175,4 +181,5 @@ public class Song implements Parcelable {
         dest.writeString(luotThich);
         dest.writeString(tenBaiHat);
     }
+
 }
