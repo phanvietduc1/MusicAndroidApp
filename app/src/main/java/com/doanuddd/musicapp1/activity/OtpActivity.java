@@ -1,13 +1,17 @@
 package com.doanuddd.musicapp1.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.model.Song;
 
 public class OtpActivity extends AppCompatActivity {
 
@@ -15,6 +19,9 @@ public class OtpActivity extends AppCompatActivity {
     public EditText otp2;
     public EditText otp3;
     public EditText otp4;
+    TextView sendToEmail;
+
+    String otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +33,20 @@ public class OtpActivity extends AppCompatActivity {
         otp3 = (EditText) findViewById(R.id.et_3);
         otp4 = (EditText) findViewById(R.id.et_4);
 
+        sendToEmail = findViewById(R.id.sendToEmail);
+
         init();
+
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            if (intent.hasExtra("otp")) {
+                otp = intent.getStringExtra("otp");
+            }
+            if (intent.hasExtra("email")) {
+                sendToEmail.setText("Please type the verification code sent\nto " + intent.getStringExtra("email"));
+            }
+        }
     }
 
     private void init(){
@@ -96,8 +116,14 @@ public class OtpActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (otp4.getText().toString().length() == 1) {
-                    //sau khi nhap otp vao o cuoi nay thi app chuyen qua check ma otp dung hay sai
-                    //code o day
+                    String localOtp = otp1.getText().toString()  + otp2.getText().toString() + otp3.getText().toString() + otp4.getText().toString();
+                    if (localOtp.equals(otp)) {
+                        Intent i = new Intent(OtpActivity.this, HomeActivity.class);
+                        startActivity(i);
+                        Toast.makeText(OtpActivity.this, "Confirm Otp", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(OtpActivity.this, "Wrong Otp", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

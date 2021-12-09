@@ -16,7 +16,13 @@ public class User {
     private String email;
     @SerializedName("password")
     @Expose
-    private String token;
+    private String password;
+    @SerializedName("isConfirmed")
+    @Expose
+    private String isConfirmed;
+    @SerializedName("otp")
+    @Expose
+    private String otp;
 
     public String getId() {
         return id;
@@ -42,11 +48,28 @@ public class User {
         this.email = email;
     }
 
-    public String getToken() {
-        return token;
+    public String getPassword() {
+        return password;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public String getIsConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setIsConfirmed(String isConfirmed) {
+        this.isConfirmed = isConfirmed;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
 }

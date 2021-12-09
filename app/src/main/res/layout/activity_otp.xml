@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:id="@+id/sendToEmail"
                 android:gravity="center"
                 android:text="Please type the verification code sent\nto +91999922228888"
                 android:textColor="@color/gray"

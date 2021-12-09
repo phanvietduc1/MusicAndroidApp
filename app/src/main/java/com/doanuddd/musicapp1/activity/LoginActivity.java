@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             if (email != "" && password != "") {
                 User u = new User();
                 u.setEmail(email);
-                u.setToken(password);
+                u.setPassword(password);
 
                 UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
                 Call<User> call = userApi.authenticate(u);
@@ -81,9 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User user = response.body();
-                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(i);
-                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+
+                            otpConfirm(user);
+
                             LoadingBar.dismiss();
                         }
                         else {
@@ -118,5 +118,18 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(i);
           finish();
         });
+    }
+
+    private void otpConfirm(User user){
+        if (user.getIsConfirmed() == "1") {
+            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(i);
+            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent i = new Intent(LoginActivity.this, OtpActivity.class);
+            i.putExtra("otp", user.getOtp());
+            i.putExtra("email", user.getEmail());
+            startActivity(i);
+        }
     }
 }
