@@ -58,48 +58,19 @@ public class PlayingMusicActivity extends AppCompatActivity {
     FragmentDisc fragment_disc;
     public static ViewPagerDisc adapterDisc;
 
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing_music);
+        intent = getIntent();
         GetDataFromIntent();
         anhxa();
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         enventClick();
-//        imageViewtim.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (dem == 0){
-//                    Animation animation = AnimationUtils.loadAnimation(PlayingMusicActivity.this, R.anim.anim_timclick);
-//                    imageViewtim.setImageResource(R.drawable.iconloved);
-//                    view.startAnimation(animation);
-//                    if (songArrayList.size() > 0){
-//                        insertYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat(), mangbaihat.get(position).getTenBaiHat(),
-//                                mangbaihat.get(position).getTenCaSi(), mangbaihat.get(position).getHinhBaiHat(), mangbaihat.get(position).getLinkBaiHat());
-//                    }else if (mangbaihetthuvienplaylist.size() > 0){
-//                        insertYeuThich(taikhoan, mangbaihetthuvienplaylist.get(position).getIdBaiHat(), mangbaihetthuvienplaylist.get(position).getTenBaiHat(),
-//                                mangbaihetthuvienplaylist.get(position).getTenCaSi(), mangbaihetthuvienplaylist.get(position).getHinhBaiHat(), mangbaihetthuvienplaylist.get(position).getLinkBaiHat());
-//                    }else if (mangbaihatyeuthich.size() > 0){
-//                        insertYeuThich(taikhoan, mangbaihatyeuthich.get(position).getIdBaiHat(), mangbaihatyeuthich.get(position).getTenBaiHat(),
-//                                mangbaihatyeuthich.get(position).getTenCaSi(), mangbaihatyeuthich.get(position).getHinhBaiHat(), mangbaihatyeuthich.get(position).getLinkBaiHat());
-//                    }
-//                    dem++;
-//
-//                }else {
-//                    imageViewtim.setImageResource(R.drawable.iconlove);
-//                    if (mangbaihat.size() > 0){
-//                        deleteYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
-//                    }else if (mangbaihetthuvienplaylist.size() > 0){
-//                        deleteYeuThich(taikhoan, mangbaihetthuvienplaylist.get(position).getIdBaiHat());
-//                    }else if (mangbaihatyeuthich.size() > 0){
-//                        deleteYeuThich(taikhoan, mangbaihatyeuthich.get(position).getIdBaiHat());
-//                    }
-//                    dem--;
-//                }
-//            }
-//        });
     }
 
     private void enventClick() {
@@ -108,9 +79,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (songArrayList.size() > 0) {
-//                    fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
-                    fragment_disc.PlayNhac("aa");
-
+                    setImageDisc();
                     handler.removeCallbacks(this);
                 } else {
                     handler.postDelayed(this, 300);
@@ -213,7 +182,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
                             position = 0;
                         }
 //                        checkYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
-                        fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+                        setImageDisc();
                         new playMP3().execute(songArrayList.get(position).getLinkBaiHat());
                         getSupportActionBar().setTitle(songArrayList.get(position).getTenBaiHat());
                         UpdateTime();
@@ -258,7 +227,8 @@ public class PlayingMusicActivity extends AppCompatActivity {
                             position = index;
                         }
 //                        checkYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
-                        fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+                        setImageDisc();
+
                         new playMP3().execute(songArrayList.get(position).getLinkBaiHat());
                         getSupportActionBar().setTitle(songArrayList.get(position).getTenBaiHat());
                         UpdateTime();
@@ -329,30 +299,51 @@ public class PlayingMusicActivity extends AppCompatActivity {
     }
 
     private void GetDataFromIntent() {
-        Intent intent = getIntent();
+
         songArrayList.clear();
 
         if (intent != null) {
             if (intent.hasExtra("song")) {
                 Song baiHat = intent.getParcelableExtra("song");
                 songArrayList.add(baiHat);
+                imageButtonDownload.setVisibility(View.VISIBLE);
             }
             
             if (intent.hasExtra("listSong")){
                 ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listSong");
                 songArrayList = songArrayFromIntent;
+                imageButtonDownload.setVisibility(View.VISIBLE);
             }
 
             if (intent.hasExtra(("localSong"))){
                 Song baiHat = intent.getParcelableExtra("localSong");
                 songArrayList.add(baiHat);
                 // an nut tai
+                imageButtonDownload.setVisibility(View.GONE);
             }
 
             if (intent.hasExtra(("listLocalSong"))){
                 ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listLocalSong");
                 songArrayList = songArrayFromIntent;
                 // an nut tai
+                imageButtonDownload.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    private void setImageDisc(){
+        if (intent != null) {
+            if (intent.hasExtra("song")) {
+                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+            }
+            if (intent.hasExtra("listSong")){
+                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+            }
+            if (intent.hasExtra(("localSong"))){
+                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHatBit());
+            }
+            if (intent.hasExtra(("listLocalSong"))){
+                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHatBit());
             }
         }
     }
@@ -471,7 +462,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
             public void run() {
                 if (mediaPlayer.isPlaying()) {
                     //Hien anh bai hat len dia
-                    fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+                    setImageDisc();
                 }
                 if (next == true) {
                     if (position < (songArrayList.size())) {
@@ -493,7 +484,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
                         }
                         try {
 //                            checkYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
-                            fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
+                            setImageDisc();
                             new playMP3().execute(songArrayList.get(position).getLinkBaiHat());
                             getSupportActionBar().setTitle(songArrayList.get(position).getTenBaiHat());
                         } catch (Exception e) {
