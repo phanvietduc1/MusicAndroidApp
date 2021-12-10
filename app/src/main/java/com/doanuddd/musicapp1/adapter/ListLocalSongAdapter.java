@@ -39,7 +39,7 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
 
     @Override
     public void onBindViewHolder(@NonNull ListLocalSongAdapter.ViewHolder holder, int position) {
-        Song baiHat = listSong.get(position);
+        Song baiHat = listSong.get(holder.getAdapterPosition());
         holder.txttentimkiem.setText(baiHat.getTenBaiHat());
         holder.txtcasitimkiem.setText(baiHat.getCaSi());
         holder.imganhtimkiem.setImageBitmap(baiHat.getHinhBaiHatBit());

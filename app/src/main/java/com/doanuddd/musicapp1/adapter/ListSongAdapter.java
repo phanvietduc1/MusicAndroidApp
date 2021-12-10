@@ -43,18 +43,8 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        Picasso.get(/*context*/).load(songList.get(position).getHinhBaiHat()).into(holder.songImageView);
-        holder.songTextView.setText(songList.get(position).getTenBaiHat());
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("click song", holder.songTextView.getText().toString());
-                Intent i = new Intent(context, PlayingMusicActivity.class);
-                i.putExtra("song", songList.get(position));
-                view.getContext().startActivity(i);
-            }
-        });
+        Picasso.get(/*context*/).load(songList.get(holder.getAdapterPosition()).getHinhBaiHat()).into(holder.songImageView);
+        holder.songTextView.setText(songList.get(holder.getAdapterPosition()).getTenBaiHat());
     }
 
     @Override
@@ -72,6 +62,14 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
             songImageView = itemView.findViewById(R.id.songImg);
             songTextView = itemView.findViewById(R.id.songText);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, PlayingMusicActivity.class);
+                    i.putExtra("song", songList.get(getAdapterPosition()));
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 }

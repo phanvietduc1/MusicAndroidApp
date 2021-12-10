@@ -46,15 +46,6 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
         Picasso.get(/*context*/).load(artistList.get(holder.getAdapterPosition()).getHinhNgheSi()).into(holder.artistImageView);
         holder.artistTextView.setText(artistList.get(holder.getAdapterPosition()).getTenNgheSi());
         Log.d("artistname", (artistList.get(holder.getAdapterPosition()).getTenNgheSi()));
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, PlaylistActivity.class);
-                i.putExtra("artist", artistList.get(holder.getAdapterPosition()));
-                view.getContext().startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -71,6 +62,15 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
 
             artistImageView = itemView.findViewById(R.id.artistImg);
             artistTextView = itemView.findViewById(R.id.artistText);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, PlaylistActivity.class);
+                    i.putExtra("artist", artistList.get(getAdapterPosition()));
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 }

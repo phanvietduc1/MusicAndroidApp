@@ -45,15 +45,6 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
         Picasso.get(/*context*/).load(genreList.get(holder.getAdapterPosition()).getHinhChuDe()).into(holder.genreImageView);
         holder.genreTextView.setText(genreList.get(holder.getAdapterPosition()).getTenChuDe());
         Log.d("genrename", (genreList.get(holder.getAdapterPosition()).getTenChuDe()));
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, PlaylistActivity.class);
-                i.putExtra("genres", genreList.get(holder.getAdapterPosition()));
-                view.getContext().startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -70,6 +61,15 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
 
             genreImageView = itemView.findViewById(R.id.genreImg);
             genreTextView = itemView.findViewById(R.id.genreText);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, PlaylistActivity.class);
+                    i.putExtra("genres", genreList.get(getAdapterPosition()));
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 }
