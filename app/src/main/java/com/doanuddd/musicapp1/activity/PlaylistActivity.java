@@ -38,6 +38,7 @@ import com.doanuddd.musicapp1.retrofit.ApiClient;
 import com.doanuddd.musicapp1.retrofit.SongApi;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,10 +65,14 @@ public class PlaylistActivity extends AppCompatActivity {
     private static ArrayList<Artist> artistArrayList = new ArrayList<>();
     private static ArrayList<Genre> genresArrayList = new ArrayList<>();
 
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.remove_activity_danhsachbaihat);
+        setContentView(R.layout.activity_playlist);
+        intent = getIntent();
+
         getDataFromIntent();
         AnhXa();
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
@@ -77,7 +82,6 @@ public class PlaylistActivity extends AppCompatActivity {
     private void GetDataPlaylist() {
         Keyword k = new Keyword();
 
-        Intent intent = getIntent();
         if (intent.hasExtra("artist")){
             k.setKeyword(artistArrayList.get(0).getIdNgheSi());
 
@@ -121,7 +125,6 @@ public class PlaylistActivity extends AppCompatActivity {
     }
 
     private void getDataFromIntent() {
-        Intent intent = getIntent();
         artistArrayList.clear();
         genresArrayList.clear();
 
@@ -145,7 +148,7 @@ public class PlaylistActivity extends AppCompatActivity {
         imgdanhsachcakhuc = findViewById(R.id.imageviewdanhsachcakhuc);
         floatingActionButton = findViewById(R.id.floatingactionbutton);
         txtcollapsing = findViewById(R.id.textViewcollapsing);
-        btnThemnhac = findViewById(R.id.btnthemnhacthuvien);
+//        btnThemnhac = findViewById(R.id.btnthemnhacthuvien);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -156,5 +159,16 @@ public class PlaylistActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        if (intent != null){
+            if (intent.hasExtra("artist")){
+                Picasso.get(/*context*/).load(artistArrayList.get(0).getHinhNgheSi()).into(imgdanhsachcakhuc);
+                txtcollapsing.setText(artistArrayList.get(0).getTenNgheSi());
+            }
+            if (intent.hasExtra("genres")){
+                Picasso.get(/*context*/).load(genresArrayList.get(0).getHinhChuDe()).into(imgdanhsachcakhuc);
+                txtcollapsing.setText(genresArrayList.get(0).getTenChuDe());
+            }
+        }
     }
 }

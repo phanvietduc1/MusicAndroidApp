@@ -83,19 +83,19 @@
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-    <ImageView
-        android:id="@+id/btnthemnhacthuvien"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:textColor="#ffffff"
-        android:fontFamily="@font/arimo_bold"
-        android:textSize="24sp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/plus_50px"
-        android:text="+"
-        app:layout_anchor="@id/collapsingtoolbar"
-        app:layout_anchorGravity="top|right" />
+<!--    <ImageView-->
+<!--        android:id="@+id/btnthemnhacthuvien"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:fontFamily="@font/arimo_bold"-->
+<!--        android:textSize="24sp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@drawable/plus_50px"-->
+<!--        android:text="+"-->
+<!--        app:layout_anchor="@id/collapsingtoolbar"-->
+<!--        app:layout_anchorGravity="top|right" />-->
 
     <TextView
         android:id="@+id/textViewcollapsing"
@@ -110,15 +110,6 @@
         android:text="Sơn Tùng MTP Radio"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
-
-
-    <ImageView
-        android:background="@drawable/back"
-        android:elevation="6dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="17dp"
-        android:layout_width="25dp"
-        android:layout_height="25dp"/>
 
     <ImageView
         android:id="@+id/imageviewdanhsachcakhuc"
