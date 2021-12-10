@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 //import com.example.btl_music4b.Service.Dataservice;
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.PlaylistSongAdapter;
+import com.doanuddd.musicapp1.model.Artist;
 import com.doanuddd.musicapp1.model.Keyword;
 import com.doanuddd.musicapp1.model.Song;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
@@ -56,10 +58,14 @@ public class PlaylistActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeRefreshLayout;
     private int id;
 
+    private static ArrayList<Song> songArrayList = new ArrayList<>();
+    private static ArrayList<Artist> artistArrayList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.remove_activity_danhsachbaihat);
+        getDataFromIntent();
         AnhXa();
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
         GetDataPlaylist();
@@ -67,9 +73,10 @@ public class PlaylistActivity extends AppCompatActivity {
 
     private void GetDataPlaylist() {
         Keyword k = new Keyword();
-        k.setKeyword("Chưa Bao Giờ Em Quên");
+        k.setKeyword(artistArrayList.get(0).getIdNgheSi());
+
         SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
-        Call<List<Song>> callback = songApi.getSongByKeyWord(k);
+        Call<List<Song>> callback = songApi.getSongByArtist(k);
         callback.enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
@@ -84,6 +91,18 @@ public class PlaylistActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void getDataFromIntent() {
+        Intent intent = getIntent();
+        artistArrayList.clear();
+
+        if (intent != null){
+            if (intent.hasExtra("artist")){
+                Artist artistFromIntent = intent.getParcelableExtra("artist");
+                artistArrayList.add(artistFromIntent);
+            }
+        }
     }
 
     private void AnhXa() {

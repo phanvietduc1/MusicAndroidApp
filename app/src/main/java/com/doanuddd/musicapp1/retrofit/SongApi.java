@@ -20,4 +20,7 @@ public interface SongApi {
 //    @FormUrlEncoded
     @POST("/api/getSongByKeyWord")
     Call<List<Song>> getSongByKeyWord(@Body Keyword keyword);
+
+    @POST("/api/getSongByArtist")
+    Call<List<Song>> getSongByArtist(@Body Keyword keyword);
 }

@@ -1,6 +1,8 @@
 package com.doanuddd.musicapp1.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
+import com.doanuddd.musicapp1.activity.PlaylistActivity;
 import com.doanuddd.musicapp1.model.Artist;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +25,7 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
 
     private List<Artist> artistList;
     Context context;
+    View view;
 
     public ListArtistAdapter(List<Artist> artistList, Context context) {
         this.artistList = artistList;
@@ -31,16 +36,25 @@ public class ListArtistAdapter extends RecyclerView.Adapter<ListArtistAdapter.Cu
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.row_artist, parent, false);
+        view = inflater.inflate(R.layout.row_artist, parent, false);
 
         return new CustomViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        Picasso.get(/*context*/).load(artistList.get(position).getHinhNgheSi()).into(holder.artistImageView);
-        holder.artistTextView.setText(artistList.get(position).getTenNgheSi());
-        Log.d("artistname", (artistList.get(position).getTenNgheSi()));
+        Picasso.get(/*context*/).load(artistList.get(holder.getAdapterPosition()).getHinhNgheSi()).into(holder.artistImageView);
+        holder.artistTextView.setText(artistList.get(holder.getAdapterPosition()).getTenNgheSi());
+        Log.d("artistname", (artistList.get(holder.getAdapterPosition()).getTenNgheSi()));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, PlaylistActivity.class);
+                i.putExtra("artist", artistList.get(holder.getAdapterPosition()));
+                view.getContext().startActivity(i);
+            }
+        });
     }
 
     @Override
