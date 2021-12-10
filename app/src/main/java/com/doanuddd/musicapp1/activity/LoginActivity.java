@@ -39,7 +39,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private MaterialButton btnLogin, btnLinkToRegister, btnForgotPass;
+    private MaterialButton btnLogin, btnLinkToRegister, btnForgot;
     private TextInputLayout inputPhone, inputPassword;
     String email, password;
     String userPassword;
@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.edit_password);
         btnLinkToRegister = findViewById(R.id.button_register);
         btnLogin = findViewById(R.id.button_login);
+        btnForgot = findViewById(R.id.button_forget);
 
         LoadingBar.setTitle("Login Account");
         LoadingBar.setMessage("Please wait");
@@ -72,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             if (email != "" && password != "") {
                 User u = new User();
                 u.setEmail(email);
-                u.setToken(password);
+                u.setPassword(password);
 
                 UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
                 Call<User> call = userApi.authenticate(u);
@@ -81,9 +82,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User user = response.body();
-                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(i);
-                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+
+                            otpConfirm(user);
+
                             LoadingBar.dismiss();
                         }
                         else {
@@ -114,9 +115,30 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         btnLinkToRegister.setOnClickListener(view -> {
-           Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(i);
-          finish();
+            finish();
         });
+        btnForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void otpConfirm(User user){
+        if (user.getIsConfirmed().equals("1")) {
+            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(i);
+            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent i = new Intent(LoginActivity.this, OtpActivity.class);
+            i.putExtra("otp", user.getOtp());
+            i.putExtra("email", user.getEmail());
+            startActivity(i);
+        }
     }
 }
