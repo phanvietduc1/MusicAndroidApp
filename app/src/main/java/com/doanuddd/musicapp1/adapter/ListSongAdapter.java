@@ -51,7 +51,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
             public void onClick(View view) {
                 Log.d("click song", holder.songTextView.getText().toString());
                 Intent i = new Intent(context, PlayingMusicActivity.class);
-                i.putExtra("cakhuc", songList.get(position));
+                i.putExtra("song", songList.get(position));
                 view.getContext().startActivity(i);
             }
         });

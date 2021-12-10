@@ -333,8 +333,8 @@ public class PlayingMusicActivity extends AppCompatActivity {
         songArrayList.clear();
 
         if (intent != null) {
-            if (intent.hasExtra("cakhuc")) {
-                Song baiHat = intent.getParcelableExtra("cakhuc");
+            if (intent.hasExtra("song")) {
+                Song baiHat = intent.getParcelableExtra("song");
                 songArrayList.add(baiHat);
             }
             

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         anhxa();
         init();
 
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        Intent i = new Intent(MainActivity.this, HomeActivity.class);
         Thread thread = new Thread()
         {
             @Override
@@ -57,5 +57,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-//Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();
