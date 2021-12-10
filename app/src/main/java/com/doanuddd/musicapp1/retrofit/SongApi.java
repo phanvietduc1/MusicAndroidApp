@@ -23,4 +23,7 @@ public interface SongApi {
 
     @POST("/api/getSongByArtist")
     Call<List<Song>> getSongByArtist(@Body Keyword keyword);
+
+    @POST("/api/getSongByGenres")
+    Call<List<Song>> getSongByGenres(@Body Keyword keyword);
 }

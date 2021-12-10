@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import com.example.btl_music4b.Adapter.DanhsachbaihatAdapter;
 //import com.example.btl_music4b.Adapter.dsbhthuvienplaylistAdapter;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.PlaylistSongAdapter;
 import com.doanuddd.musicapp1.model.Artist;
+import com.doanuddd.musicapp1.model.Genre;
 import com.doanuddd.musicapp1.model.Keyword;
 import com.doanuddd.musicapp1.model.Song;
 import com.doanuddd.musicapp1.retrofit.ApiClient;
@@ -60,6 +62,7 @@ public class PlaylistActivity extends AppCompatActivity {
 
     private static ArrayList<Song> songArrayList = new ArrayList<>();
     private static ArrayList<Artist> artistArrayList = new ArrayList<>();
+    private static ArrayList<Genre> genresArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,34 +76,63 @@ public class PlaylistActivity extends AppCompatActivity {
 
     private void GetDataPlaylist() {
         Keyword k = new Keyword();
-        k.setKeyword(artistArrayList.get(0).getIdNgheSi());
 
-        SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
-        Call<List<Song>> callback = songApi.getSongByArtist(k);
-        callback.enqueue(new Callback<List<Song>>() {
-            @Override
-            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-                mangbaihat = (ArrayList<Song>) response.body();
-                danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, mangbaihat);
-                recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(PlaylistActivity.this));
-                recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
-            }
+        Intent intent = getIntent();
+        if (intent.hasExtra("artist")){
+            k.setKeyword(artistArrayList.get(0).getIdNgheSi());
 
-            @Override
-            public void onFailure(Call<List<Song>> call, Throwable t) {
+            SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
+            Call<List<Song>> callback = songApi.getSongByArtist(k);
+            callback.enqueue(new Callback<List<Song>>() {
+                @Override
+                public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                    mangbaihat = (ArrayList<Song>) response.body();
+                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, mangbaihat);
+                    recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(PlaylistActivity.this));
+                    recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                }
 
-            }
-        });
+                @Override
+                public void onFailure(Call<List<Song>> call, Throwable t) {
+                    Toast.makeText(PlaylistActivity.this, "System error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        if (intent.hasExtra("genres")){
+            k.setKeyword(genresArrayList.get(0).getIdChuDe());
+
+            SongApi songApi = ApiClient.self().retrofit.create(SongApi.class);
+            Call<List<Song>> callback = songApi.getSongByGenres(k);
+            callback.enqueue(new Callback<List<Song>>() {
+                @Override
+                public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                    mangbaihat = (ArrayList<Song>) response.body();
+                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, mangbaihat);
+                    recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(PlaylistActivity.this));
+                    recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<List<Song>> call, Throwable t) {
+                    Toast.makeText(PlaylistActivity.this, "System error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     private void getDataFromIntent() {
         Intent intent = getIntent();
         artistArrayList.clear();
+        genresArrayList.clear();
 
         if (intent != null){
             if (intent.hasExtra("artist")){
                 Artist artistFromIntent = intent.getParcelableExtra("artist");
                 artistArrayList.add(artistFromIntent);
+            }
+            if (intent.hasExtra("genres")){
+                Genre genresFromIntent = intent.getParcelableExtra("genres");
+                genresArrayList.add(genresFromIntent);
             }
         }
     }
