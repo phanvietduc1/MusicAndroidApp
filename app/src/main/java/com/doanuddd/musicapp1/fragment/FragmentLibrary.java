@@ -112,6 +112,7 @@ public class FragmentLibrary extends Fragment {
                 Song song = new Song();
                 song.setTenBaiHat(songCursor.getString(songTitle));
                 song.setCaSi(songCursor.getString(songArtist));
+                song.setLinkBaiHat(songCursor.getString(path));
                 art = metaRetriver.getEmbeddedPicture();
                 Bitmap songImage = BitmapFactory.decodeByteArray(art, 0, art.length);
                 song.setHinhBaiHatBit(songImage);
@@ -154,7 +155,7 @@ public class FragmentLibrary extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), PlayingMusicActivity.class);
-                i.putExtra("listSong", arrayList);
+                i.putExtra("listLocalSong", arrayList);
                 view.getContext().startActivity(i);
             }
         });

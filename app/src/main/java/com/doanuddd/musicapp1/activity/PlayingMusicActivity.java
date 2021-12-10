@@ -287,8 +287,20 @@ public class PlayingMusicActivity extends AppCompatActivity {
 
             }else if (intent.hasExtra("cacbaihatthuvien")){
 
-            }else if (intent.hasExtra(("cakhucyeuthich"))){
+            }else if (intent.hasExtra(("localSong"))){
 
+            }
+
+            if (intent.hasExtra(("localSong"))){
+                Song baiHat = intent.getParcelableExtra("localSong");
+                songArrayList.add(baiHat);
+                // an nut tai
+            }
+
+            if (intent.hasExtra(("listLocalSong"))){
+                ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listLocalSong");
+                songArrayList = songArrayFromIntent;
+                // an nut tai
             }
         }
     }
