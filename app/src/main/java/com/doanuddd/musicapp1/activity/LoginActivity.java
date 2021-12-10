@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private MaterialButton btnLogin, btnLinkToRegister, btnForgotPass;
     private TextInputLayout inputPhone, inputPassword;
+    private DBHandler dbHandler;
     String email, password;
     String userPassword;
 
@@ -81,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User user = response.body();
+                            dbHandler = new DBHandler(LoginActivity.this);
+                            dbHandler.addNewUser(user.getName(), user.getEmail(), user.getToken());
                             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(i);
                             Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();

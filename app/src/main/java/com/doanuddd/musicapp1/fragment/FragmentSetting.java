@@ -15,16 +15,21 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.HomeActivity;
 import com.doanuddd.musicapp1.activity.LoginActivity;
+import com.squareup.picasso.Picasso;
 
 
 public class FragmentSetting extends Fragment {
 
+    HomeActivity hm;
     View view;
-    Button btn_logout;
+    Button btn_logout, btn_profile;
+    TextView txt_settingname;
 
 
     public FragmentSetting() {
@@ -51,6 +56,7 @@ public class FragmentSetting extends Fragment {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_setting, container, false);
         anhxa();
+        Init();
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,11 +65,25 @@ public class FragmentSetting extends Fragment {
                 Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
             }
         });
+        btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager1 = getActivity().getSupportFragmentManager();
+                manager1.beginTransaction().replace(R.id.container2,new FragmentProfile()).commit();
+            }
+        });
 
         return view;
     }
 
+    private void Init() {
+        txt_settingname = view.findViewById(R.id.settingname);
+        hm = (HomeActivity) getActivity();
+        txt_settingname.setText(hm.getName());
+    }
+
     private void anhxa(){
         btn_logout = view.findViewById(R.id.btn_logout);
+        btn_profile = view.findViewById(R.id.btn_profile);
     }
 }

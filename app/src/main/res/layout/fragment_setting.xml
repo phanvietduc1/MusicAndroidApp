@@ -7,7 +7,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_wallpaper"
     android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/container2"
+        android:orientation="vertical">
+    </LinearLayout>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -20,6 +25,7 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/settingname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -32,7 +38,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btn_profile"
+            android:background="#0000">
+        </Button>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewRadioAvatar"
             android:layout_width="50dp"
@@ -77,10 +88,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:padding="6dp"
-            android:layout_marginRight="20dp"
             app:srcCompat="@drawable/angleright"
             app:tint="@color/white" />
 
