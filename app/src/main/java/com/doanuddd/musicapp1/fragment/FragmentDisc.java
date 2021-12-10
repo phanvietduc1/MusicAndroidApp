@@ -38,6 +38,7 @@ public class FragmentDisc extends Fragment {
         return view;
     }
     public void PlayNhac(String hinhanh) {
-        Picasso.get().load("http://20.212.33.118:1111/open_songImage?imgName=chuabaogioemquen.jpg").into(circleImageView);
+//        Picasso.get().load("http://20.212.33.118:1111/open_songImage?imgName=chuabaogioemquen.jpg").into(circleImageView);
+        Picasso.get().load(hinhanh).into(circleImageView);
     }
 }
