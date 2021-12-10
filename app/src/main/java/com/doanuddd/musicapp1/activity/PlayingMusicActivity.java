@@ -336,14 +336,23 @@ public class PlayingMusicActivity extends AppCompatActivity {
             if (intent.hasExtra("cakhuc")) {
                 Song baiHat = intent.getParcelableExtra("cakhuc");
                 songArrayList.add(baiHat);
-            } else if (intent.hasExtra("cacbaihat")) {
+            }
+            
+            if (intent.hasExtra("listSong")){
+                ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listSong");
+                songArrayList = songArrayFromIntent;
+            }
 
-            } else if (intent.hasExtra("cakhucthuvien")) {
+            if (intent.hasExtra(("localSong"))){
+                Song baiHat = intent.getParcelableExtra("localSong");
+                songArrayList.add(baiHat);
+                // an nut tai
+            }
 
-            } else if (intent.hasExtra("cacbaihatthuvien")) {
-
-            } else if (intent.hasExtra(("cakhucyeuthich"))) {
-
+            if (intent.hasExtra(("listLocalSong"))){
+                ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listLocalSong");
+                songArrayList = songArrayFromIntent;
+                // an nut tai
             }
         }
     }

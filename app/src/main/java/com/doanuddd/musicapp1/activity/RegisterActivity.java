@@ -113,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
             User u = new User();
             u.setName(name);
             u.setEmail(email);
-            u.setToken(password);
+            u.setPassword(password);
 
             UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
             Call<User> call = userApi.register(u);
