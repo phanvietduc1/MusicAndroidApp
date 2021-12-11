@@ -2,7 +2,6 @@ package com.doanuddd.musicapp1.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.activity.HomeActivity;
-import com.doanuddd.musicapp1.activity.LoginActivity;
-import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
+import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
 import com.squareup.picasso.Picasso;
 
@@ -65,7 +62,7 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(context, PlayingMusicActivity.class);
+                    Intent i = new Intent(context, PlayMusicActivity.class);
                     i.putExtra("song", songList.get(getAdapterPosition()));
                     view.getContext().startActivity(i);
                 }

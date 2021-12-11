@@ -1,6 +1,5 @@
 package com.doanuddd.musicapp1.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
 import com.doanuddd.musicapp1.activity.PlaylistActivity;
 import com.doanuddd.musicapp1.model.Artist;
 import com.squareup.picasso.Picasso;

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +51,7 @@ import retrofit2.Response;
 public class PlaylistActivity extends AppCompatActivity {
     CoordinatorLayout coordinatorLayout;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    androidx.appcompat.widget.Toolbar toolbar;
+    ImageButton btnBack;
     RecyclerView recyclerViewdanhsachbaihat;
     FloatingActionButton floatingActionButton;
     TextView txtcollapsing;
@@ -143,17 +144,13 @@ public class PlaylistActivity extends AppCompatActivity {
     private void AnhXa() {
         coordinatorLayout = findViewById(R.id.coordinatorlayout);
         collapsingToolbarLayout = findViewById(R.id.collapsingtoolbar);
-        toolbar = findViewById(R.id.toolbardanhsachbaihat);
         recyclerViewdanhsachbaihat = findViewById(R.id.recyclerviewdanhsachbaihat);
         imgdanhsachcakhuc = findViewById(R.id.imageviewdanhsachcakhuc);
         floatingActionButton = findViewById(R.id.floatingactionbutton);
         txtcollapsing = findViewById(R.id.textViewcollapsing);
-//        btnThemnhac = findViewById(R.id.btnthemnhacthuvien);
+        btnBack = findViewById(R.id.btnBack);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayingMusicActivity extends AppCompatActivity {
+public class PlayMusicActivity extends AppCompatActivity {
 
     private static final int PERMISSION_STORAGE_CODE = 1000;
 
@@ -63,7 +63,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playing_music);
+        setContentView(R.layout.activity_play_music);
         intent = getIntent();
         GetDataFromIntent();
         anhxa();

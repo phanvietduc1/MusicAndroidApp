@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/login_wallpaper"
-    tools:context=".activity.PlayingMusicActivity">
+    tools:context=".activity.PlayMusicActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerdianhac"

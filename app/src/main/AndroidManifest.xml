@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MusicApp1"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.PlayingMusicActivity"
+            android:name=".activity.PlayMusicActivity"
             android:exported="true" />
         <activity
             android:name=".activity.HomeActivity"

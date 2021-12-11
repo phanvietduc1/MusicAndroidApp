@@ -160,6 +160,8 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_artist.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_genre.xml" value="0.5" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_layout.xml" value="0.1" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_local_song.xml" value="0.184375" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_playlist.xml" value="0.1431159420289855" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_search.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_song.xml" value="0.4466666666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.184375" />

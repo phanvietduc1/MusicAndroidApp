@@ -14,10 +14,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -27,9 +24,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
+import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.adapter.ListLocalSongAdapter;
-import com.doanuddd.musicapp1.adapter.SearchAdapter;
 import com.doanuddd.musicapp1.model.Song;
 
 import java.util.ArrayList;
@@ -154,7 +150,7 @@ public class FragmentLibrary extends Fragment {
         btnPlayAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), PlayingMusicActivity.class);
+                Intent i = new Intent(getContext(), PlayMusicActivity.class);
                 i.putExtra("listLocalSong", arrayList);
                 view.getContext().startActivity(i);
             }

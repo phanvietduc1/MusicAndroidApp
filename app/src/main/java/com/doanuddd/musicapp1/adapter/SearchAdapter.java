@@ -2,7 +2,6 @@ package com.doanuddd.musicapp1.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
-import com.doanuddd.musicapp1.activity.PlayingMusicActivity;
+import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
 import com.squareup.picasso.Picasso;
 
@@ -66,7 +64,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     Log.i("tagmusic", "onClick: click vao bai hat");
-                    Intent intent = new Intent(context, PlayingMusicActivity.class);
+                    Intent intent = new Intent(context, PlayMusicActivity.class);
                     intent.putExtra("song", listSong.get(getAdapterPosition()));
                     context.startActivity(intent);
                 }
