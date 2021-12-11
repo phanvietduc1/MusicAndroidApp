@@ -30,6 +30,9 @@ public interface UserApi {
     @POST("api/user/confirmOtp")
     Call<User> confirmOtp(@Body User user);
 
+    @POST("api/user/resendOTP")
+    Call<User> resendOTP(@Body User user);
+
     @POST("api/user/resetPassword")
     Call<User> resetPassword(@Body Keyword keyword);
 }

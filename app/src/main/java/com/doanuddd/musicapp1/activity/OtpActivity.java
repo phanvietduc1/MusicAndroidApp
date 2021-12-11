@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +32,8 @@ public class OtpActivity extends AppCompatActivity {
     public EditText otp4;
     TextView sendToEmail;
 
+    Button btnConfirm, btnResend, btnBack;
+
     String otp;
     String email;
 
@@ -46,6 +50,9 @@ public class OtpActivity extends AppCompatActivity {
         otp4 = (EditText) findViewById(R.id.et_4);
 
         sendToEmail = findViewById(R.id.sendToEmail);
+        btnResend = findViewById(R.id.btnResend);
+        btnConfirm = findViewById(R.id.btnConfirm);
+        btnBack = findViewById(R.id.btnBack);
 
         LoadingBar = new ProgressDialog(this);
         LoadingBar.setTitle("Confirm Otp");
@@ -148,6 +155,27 @@ public class OtpActivity extends AppCompatActivity {
 
             }
         });
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postOtp();
+            }
+        });
+
+        btnResend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resendOTP();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void postOtp(){
@@ -166,6 +194,38 @@ public class OtpActivity extends AppCompatActivity {
                     Intent i = new Intent(OtpActivity.this, HomeActivity.class);
                     startActivity(i);
                     Toast.makeText(OtpActivity.this, "Confirm Otp", Toast.LENGTH_SHORT).show();
+
+                    LoadingBar.dismiss();
+                }
+                else {
+                    LoadingBar.dismiss();
+                    Toast.makeText(OtpActivity.this, "Respone fail", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("toang",t.getMessage());
+                LoadingBar.dismiss();
+                Toast.makeText(OtpActivity.this, "System Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void resendOTP(){
+        LoadingBar.show();
+
+        User u = new User();
+        u.setEmail(email);
+
+        UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
+        Call<User> call = userApi.resendOTP(u);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    Intent i = new Intent(OtpActivity.this, LoginActivity.class);
+                    startActivity(i);
+                    Toast.makeText(OtpActivity.this, "Already resend OTP", Toast.LENGTH_SHORT).show();
 
                     LoadingBar.dismiss();
                 }

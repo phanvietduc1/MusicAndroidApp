@@ -4,6 +4,8 @@
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
     <string name="login">Login</string>
+    <string name="resendOTP">Resend OTP</string>
+    <string name="confirm">Confirm</string>
     <string name="register">Register</string>
     <string name="btn_link_to_register">Not a member? Sign up now.</string>
     <string name="btn_link_to_login">Already registred! Login Me.</string>
@@ -23,4 +25,6 @@
     <string name="already_user">Already a user?</string>
     <string name="login_button">LOG IN</string>
     <string name="welcome_text">Sign up for free music on your phone, tablet, and computer.</string>
+    <string name="emailExist">Email already exists. Please use another email.</string>
+
 </resources>

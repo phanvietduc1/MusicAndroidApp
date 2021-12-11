@@ -8,13 +8,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/mau_cua_app">
+        android:background="@drawable/login_wallpaper">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/back"
+            android:theme="@style/Button.White">
+
+        </Button>
 
         <LinearLayout
             android:id="@+id/frst_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="150dp"
             android:orientation="vertical">
 
             <TextView
@@ -26,10 +37,10 @@
                 android:textSize="25dp" />
 
             <TextView
+                android:id="@+id/sendToEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:id="@+id/sendToEmail"
                 android:gravity="center"
                 android:text="Please type the verification code sent\nto +91999922228888"
                 android:textColor="@color/gray"
@@ -38,6 +49,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/frst_ll"
@@ -94,6 +106,58 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/second"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnConfirm"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bordered_button"
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                app:backgroundTint="@android:color/white">
+
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/third"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnResend"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnConfirm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/bordered_button"
+                android:text="@string/resendOTP"
+                android:textColor="@color/white"
+                app:backgroundTint="@android:color/white">
+
+            </Button>
         </LinearLayout>
 
     </RelativeLayout>
