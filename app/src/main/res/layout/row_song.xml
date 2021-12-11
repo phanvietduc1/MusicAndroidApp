@@ -7,7 +7,6 @@
     android:layout_width="wrap_content"
     android:id="@+id/songCard"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp">
 
@@ -16,19 +15,20 @@
         android:layout_height="270dp"
         android:orientation="vertical">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/songImg"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            app:riv_corner_radius="10dip"
             android:src="@drawable/pl1"
             android:layout_margin="10dp">
-        </ImageView>
+        </com.makeramen.roundedimageview.RoundedImageView>
         <TextView
             android:id="@+id/songText"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="Sơn Tùng MTP Radio"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_margin="10dp"
             android:textColor="@color/white">
         </TextView>

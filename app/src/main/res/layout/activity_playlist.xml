@@ -58,12 +58,13 @@
             android:id="@+id/swipedanhsachbaihat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="58dp"
             android:minHeight="2000dp">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewdanhsachbaihat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:minHeight="2000dp">
 
             </androidx.recyclerview.widget.RecyclerView>

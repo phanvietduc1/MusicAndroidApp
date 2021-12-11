@@ -56,7 +56,6 @@ public class PlaylistActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     TextView txtcollapsing;
     ImageView imgdanhsachcakhuc;
-    ArrayList<Song> mangbaihat;
     PlaylistSongAdapter danhsachbaihatAdapter;
     ImageView btnThemnhac;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -91,8 +90,8 @@ public class PlaylistActivity extends AppCompatActivity {
             callback.enqueue(new Callback<List<Song>>() {
                 @Override
                 public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-                    mangbaihat = (ArrayList<Song>) response.body();
-                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, mangbaihat);
+                    songArrayList = (ArrayList<Song>) response.body();
+                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, songArrayList);
                     recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(PlaylistActivity.this));
                     recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
                 }
@@ -111,8 +110,8 @@ public class PlaylistActivity extends AppCompatActivity {
             callback.enqueue(new Callback<List<Song>>() {
                 @Override
                 public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-                    mangbaihat = (ArrayList<Song>) response.body();
-                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, mangbaihat);
+                    songArrayList = (ArrayList<Song>) response.body();
+                    danhsachbaihatAdapter = new PlaylistSongAdapter(PlaylistActivity.this, songArrayList);
                     recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(PlaylistActivity.this));
                     recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
                 }
@@ -154,6 +153,20 @@ public class PlaylistActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (songArrayList.size() == 0 ){
+                    Toast.makeText(PlaylistActivity.this, "No songs to play", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent i = new Intent(PlaylistActivity.this, PlayMusicActivity.class);
+                    i.putExtra("listSong", songArrayList);
+                    view.getContext().startActivity(i);
+                    finish();
+                }
             }
         });
 

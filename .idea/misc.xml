@@ -126,6 +126,7 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/ic_vectordown_background.xml" value="0.20052083333333334" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/layout_bg.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/underlined_input_text.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/font/arimo_bold.xml" value="0.13020833333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_danhsachbaihat.xml" value="0.184375" />
@@ -157,7 +158,7 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_timkiem.xml" value="0.11197916666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/meu_search.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/remove_fragment_bxh.xml" value="0.1" />
-        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_artist.xml" value="0.184375" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_artist.xml" value="0.5" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_genre.xml" value="0.5" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_layout.xml" value="0.1" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_local_song.xml" value="0.184375" />
