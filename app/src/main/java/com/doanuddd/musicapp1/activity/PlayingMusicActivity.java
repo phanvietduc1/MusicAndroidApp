@@ -306,27 +306,27 @@ public class PlayingMusicActivity extends AppCompatActivity {
             if (intent.hasExtra("song")) {
                 Song baiHat = intent.getParcelableExtra("song");
                 songArrayList.add(baiHat);
-                imageButtonDownload.setVisibility(View.VISIBLE);
+//                imageButtonDownload.setVisibility(View.VISIBLE);
             }
             
             if (intent.hasExtra("listSong")){
                 ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listSong");
                 songArrayList = songArrayFromIntent;
-                imageButtonDownload.setVisibility(View.VISIBLE);
+//                imageButtonDownload.setVisibility(View.VISIBLE);
             }
 
             if (intent.hasExtra(("localSong"))){
                 Song baiHat = intent.getParcelableExtra("localSong");
                 songArrayList.add(baiHat);
                 // an nut tai
-                imageButtonDownload.setVisibility(View.GONE);
+//                imageButtonDownload.setVisibility(View.GONE);
             }
 
             if (intent.hasExtra(("listLocalSong"))){
                 ArrayList<Song> songArrayFromIntent = intent.getParcelableArrayListExtra("listLocalSong");
                 songArrayList = songArrayFromIntent;
                 // an nut tai
-                imageButtonDownload.setVisibility(View.GONE);
+//                imageButtonDownload.setVisibility(View.GONE);
             }
         }
     }
