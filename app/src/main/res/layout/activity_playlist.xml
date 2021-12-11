@@ -50,16 +50,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="#FF001417"
         android:elevation="6dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipedanhsachbaihat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:background="@drawable/layout_bg"
             android:minHeight="2000dp">
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="50dp"
                 android:id="@+id/recyclerviewdanhsachbaihat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,6 +121,14 @@
         android:elevation="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/pl1" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+        android:elevation="6dp" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
