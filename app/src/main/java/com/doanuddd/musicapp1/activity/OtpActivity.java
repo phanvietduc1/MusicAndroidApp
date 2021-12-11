@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,8 @@ public class OtpActivity extends AppCompatActivity {
     public EditText otp4;
     TextView sendToEmail;
 
-    Button btnConfirm, btnResend, btnBack;
+    Button btnConfirm, btnResend;
+    ImageButton btnBack;
 
     String otp;
     String email;

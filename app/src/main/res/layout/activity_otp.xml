@@ -10,16 +10,17 @@
         android:layout_height="match_parent"
         android:background="@drawable/login_wallpaper">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="25dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/back"
-            android:theme="@style/Button.White">
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/back">
 
-        </Button>
+        </ImageButton>
 
         <LinearLayout
             android:id="@+id/frst_ll"
