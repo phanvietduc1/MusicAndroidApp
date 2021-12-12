@@ -130,6 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                             LoadingBar.dismiss();
                             Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(i);
+                            finish();
                         }
                     }
                     else {

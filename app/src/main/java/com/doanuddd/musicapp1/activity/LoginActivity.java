@@ -133,12 +133,14 @@ public class LoginActivity extends AppCompatActivity {
         if (user.getIsConfirmed().equals("1")) {
             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(i);
+            finish();
             Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
         } else {
             Intent i = new Intent(LoginActivity.this, OtpActivity.class);
             i.putExtra("otp", user.getOtp());
             i.putExtra("email", user.getEmail());
             startActivity(i);
+            finish();
         }
     }
 }

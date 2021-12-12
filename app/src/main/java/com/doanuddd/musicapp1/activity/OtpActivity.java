@@ -196,7 +196,7 @@ public class OtpActivity extends AppCompatActivity {
                     Intent i = new Intent(OtpActivity.this, HomeActivity.class);
                     startActivity(i);
                     Toast.makeText(OtpActivity.this, "Confirm Otp", Toast.LENGTH_SHORT).show();
-
+                    finish();
                     LoadingBar.dismiss();
                 }
                 else {
@@ -228,7 +228,7 @@ public class OtpActivity extends AppCompatActivity {
                     Intent i = new Intent(OtpActivity.this, LoginActivity.class);
                     startActivity(i);
                     Toast.makeText(OtpActivity.this, "Already resend OTP", Toast.LENGTH_SHORT).show();
-
+                    finish();
                     LoadingBar.dismiss();
                 }
                 else {
