@@ -15,34 +15,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdapter.ViewHolder>{
+public class PlaylistSongAdapter extends RecyclerView.Adapter<PlaylistSongAdapter.ViewHolder>{
 
     Context context;
     ArrayList<Song> listSong;
 
-    public ListLocalSongAdapter(Context context, ArrayList<Song> listSong) {
+    public PlaylistSongAdapter(Context context, ArrayList<Song> listSong) {
         this.context = context;
         this.listSong = listSong;
     }
 
     @NonNull
     @Override
-    public ListLocalSongAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PlaylistSongAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.row_search, parent, false);
+        View view = inflater.inflate(R.layout.row_playlist, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListLocalSongAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PlaylistSongAdapter.ViewHolder holder, int position) {
         Song baiHat = listSong.get(holder.getAdapterPosition());
         holder.txttentimkiem.setText(baiHat.getTenBaiHat());
         holder.txtcasitimkiem.setText(baiHat.getCaSi());
         holder.imganhtimkiem.setImageBitmap(baiHat.getHinhBaiHatBit());
-        //Picasso.get(/*context*/).load(baiHat.getHinhBaiHat()).into(holder.imganhtimkiem);
+        Picasso.get(/*context*/).load(baiHat.getHinhBaiHat()).into(holder.imganhtimkiem);
     }
 
     @Override
@@ -56,16 +57,16 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txttentimkiem = itemView.findViewById(R.id.txttennhac);
-            txtcasitimkiem = itemView.findViewById(R.id.txtcasinhac);
-            imganhtimkiem = itemView.findViewById(R.id.imgnhac);
+            txttentimkiem = itemView.findViewById(R.id.txttennhacplaylist);
+            txtcasitimkiem = itemView.findViewById(R.id.txttencasiplaylist);
+            imganhtimkiem = itemView.findViewById(R.id.roundedImageView2);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.i("tagmusic", "onClick: click vao bai hat");
                     Intent intent = new Intent(context, PlayMusicActivity.class);
-                    intent.putExtra("localSong", listSong.get(getAdapterPosition()));
+                    intent.putExtra("song", listSong.get(getAdapterPosition()));
                     context.startActivity(intent);
                 }
             });

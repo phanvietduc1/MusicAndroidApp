@@ -1,125 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:background="@drawable/bgr_playlist">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageviewuserthuvien"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/imgitem"
-                app:civ_border_color="#FFFFFF"
-                app:civ_border_width="2dp"/>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/imageviewuserthuvien"
-                android:text="Your Library"
-                android:textColor="#FFFEFE"
-                android:textStyle="bold"
-                android:textSize="36sp" />
-            <ImageView
-                android:id="@+id/idaddthuvien"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/plus_50px"
-                android:text="+"
-                android:textColor="#FFF"
-                android:textSize="24dp"/>
-        </RelativeLayout>
-        <LinearLayout
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@id/imageviewuserthuvien"
+        android:text="Your Library"
+        android:textColor="#FFFEFE"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageviewuserthuvien"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsingToolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_marginTop="32dp"
+        android:background="#00100E0E"
+        android:fitsSystemWindows="false"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My Playlist"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp">
-            </TextView>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="180dp"
-                        android:src="@drawable/ab"
-                        android:layout_margin="10dp">
-                    </ImageView>
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:text="Danh sách phát 1"
-                        android:textColor="@color/white"
-                        android:textSize="22dp"
-                        android:layout_margin="10dp">
-                    </TextView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="180dp"
-                        android:src="@drawable/ab"
-                        android:layout_margin="10dp">
-                    </ImageView>
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:text="Danh sách phát 2"
-                        android:textColor="@color/white"
-                        android:textSize="22dp"
-                        android:layout_margin="10dp">
-                    </TextView>
-                </LinearLayout>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My Music"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp">
-            </TextView>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerviewtv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/appbarlayouttimkiem"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp" />
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+            android:text="My Music"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp">
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewtv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbarlayouttimkiem"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="60dp" />
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageviewuserthuvien"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/imgitem"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/playAll"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        app:srcCompat="@drawable/play"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </ImageButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -113,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
             User u = new User();
             u.setName(name);
             u.setEmail(email);
-            u.setToken(password);
+            u.setPassword(password);
 
             UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
             Call<User> call = userApi.register(u);
@@ -121,21 +121,28 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(RegisterActivity.this, "Sign Up success", Toast.LENGTH_SHORT).show();
-                        LoadingBar.dismiss();
-                        Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(i);
+                        User user = response.body();
+                        if (user.getEmail().equals("0")){
+                            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.emailExist), Toast.LENGTH_SHORT).show();
+                            LoadingBar.dismiss();
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Sign Up success", Toast.LENGTH_SHORT).show();
+                            LoadingBar.dismiss();
+                            Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
                     }
                     else {
                         LoadingBar.dismiss();
-                        Toast.makeText(RegisterActivity.this, "Sign Up error 1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Response fail", Toast.LENGTH_SHORT).show();
                     }
                 }
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     Log.e("toang",t.getMessage());
                     LoadingBar.dismiss();
-                    Toast.makeText(RegisterActivity.this, "Sign Up error 2", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "System error", Toast.LENGTH_SHORT).show();
                 }
             });
         }

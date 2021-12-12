@@ -57,5 +57,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-//Toast.makeText(this, "Fill out", Toast.LENGTH_SHORT).show();

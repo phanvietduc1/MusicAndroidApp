@@ -63,6 +63,7 @@ public class FragmentSetting extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), LoginActivity.class);
                 startActivity(i);
+                getActivity().finish();
                 Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
             }
         });

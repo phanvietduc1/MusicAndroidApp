@@ -2,6 +2,7 @@ package com.doanuddd.musicapp1.fragment;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,9 +14,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -25,8 +24,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.adapter.ListLocalSongAdapter;
-import com.doanuddd.musicapp1.adapter.SearchAdapter;
 import com.doanuddd.musicapp1.model.Song;
 
 import java.util.ArrayList;
@@ -39,6 +38,7 @@ public class FragmentLibrary extends Fragment {
     ArrayList<Song> arrayList;
     RecyclerView recyclerView;
     byte[] art;
+    private ImageButton btnPlayAll;
 
     public FragmentLibrary() {
         // Required empty public constructor
@@ -56,8 +56,6 @@ public class FragmentLibrary extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
@@ -66,6 +64,8 @@ public class FragmentLibrary extends Fragment {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_library, container, false);
         recyclerView = view.findViewById(R.id.recyclerviewtv);
+        btnPlayAll = view.findViewById(R.id.playAll);
+        init();
         if (getArguments() != null) {
         }
         if(ContextCompat.checkSelfPermission(getActivity(),
@@ -108,6 +108,7 @@ public class FragmentLibrary extends Fragment {
                 Song song = new Song();
                 song.setTenBaiHat(songCursor.getString(songTitle));
                 song.setCaSi(songCursor.getString(songArtist));
+                song.setLinkBaiHat(songCursor.getString(path));
                 art = metaRetriver.getEmbeddedPicture();
                 Bitmap songImage = BitmapFactory.decodeByteArray(art, 0, art.length);
                 song.setHinhBaiHatBit(songImage);
@@ -144,5 +145,15 @@ public class FragmentLibrary extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         //listView.setAdapter(adapter);
+    }
+    private void init(){
+        btnPlayAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), PlayMusicActivity.class);
+                i.putExtra("listLocalSong", arrayList);
+                view.getContext().startActivity(i);
+            }
+        });
     }
 }

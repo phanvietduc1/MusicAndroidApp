@@ -45,7 +45,7 @@
                     android:fontFamily="@font/arimo_bold"
                     android:text="Explore your goo music"
                     android:textColor="#FFFFFF"
-                    android:textSize="28sp"
+                    android:textSize="26dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:drawablePadding="10dp"/>
@@ -67,12 +67,12 @@
                         android:fontFamily="@font/arimo_bold"
                         android:text="Songs you might like"
                         android:textColor="#FFFFFF"
-                        android:textSize="22sp"
+                        android:textSize="22dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="12dp"
                         android:scrollbars="none"
@@ -88,7 +88,7 @@
                             android:orientation="horizontal">
 
                         </androidx.recyclerview.widget.RecyclerView>
-                    </HorizontalScrollView>
+                    </androidx.core.widget.NestedScrollView>
 
                     <TextView
                         android:id="@+id/txtnghesi"
@@ -99,7 +99,7 @@
                         android:fontFamily="@font/arimo_bold"
                         android:text="Best of artists"
                         android:textColor="#FFFFFF"
-                        android:textSize="22sp"
+                        android:textSize="22dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,7 +130,7 @@
                         android:fontFamily="@font/arimo_bold"
                         android:text="Genres List"
                         android:textColor="#FFFFFF"
-                        android:textSize="22sp"
+                        android:textSize="22dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

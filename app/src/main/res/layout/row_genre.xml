@@ -13,19 +13,20 @@
         android:layout_width="170dp"
         android:layout_height="270dp"
         android:orientation="vertical">
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/genreImg"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            app:riv_corner_radius="10dip"
             android:src="@drawable/cd1"
             android:layout_margin="10dp">
-        </ImageView>
+        </com.makeramen.roundedimageview.RoundedImageView>
         <TextView
             android:id="@+id/genreText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="K-pop"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_margin="10dp"
             android:textColor="@color/white">
         </TextView>

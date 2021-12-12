@@ -2,6 +2,7 @@ package com.doanuddd.musicapp1.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.PlaylistActivity;
 import com.doanuddd.musicapp1.model.Genre;
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +24,7 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
 
     private List<Genre> genreList;
     Context context;
+    View view;
 
     public ListGenreAdapter(List<Genre> genreList, Context context) {
         this.genreList = genreList;
@@ -32,16 +35,16 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
     @Override
     public ListGenreAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.row_genre, parent, false);
+        view = inflater.inflate(R.layout.row_genre, parent, false);
 
         return new ListGenreAdapter.CustomViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ListGenreAdapter.CustomViewHolder holder, int position) {
-        Picasso.get(/*context*/).load(genreList.get(position).getHinhChuDe()).into(holder.genreImageView);
-        holder.genreTextView.setText(genreList.get(position).getTenChuDe());
-        Log.d("genrename", (genreList.get(position).getTenChuDe()));
+        Picasso.get(/*context*/).load(genreList.get(holder.getAdapterPosition()).getHinhChuDe()).into(holder.genreImageView);
+        holder.genreTextView.setText(genreList.get(holder.getAdapterPosition()).getTenChuDe());
+        Log.d("genrename", (genreList.get(holder.getAdapterPosition()).getTenChuDe()));
     }
 
     @Override
@@ -58,6 +61,15 @@ public class ListGenreAdapter extends RecyclerView.Adapter<ListGenreAdapter.Cust
 
             genreImageView = itemView.findViewById(R.id.genreImg);
             genreTextView = itemView.findViewById(R.id.genreText);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, PlaylistActivity.class);
+                    i.putExtra("genres", genreList.get(getAdapterPosition()));
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 }
