@@ -173,6 +173,8 @@ public class OtpActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(OtpActivity.this, LoginActivity.class);
+                startActivity(i);
                 finish();
             }
         });

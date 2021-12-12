@@ -15,18 +15,12 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface UserApi {
-//    @FormUrlEncoded
-//    @GET("/api/user")
-//    Call<List<User>> getUser();
-
-//    @FormUrlEncoded
     @POST("api/user/login")
     Call<User> authenticate(@Body User user);
 
     @POST("api/user/loginByHash")
     Call<User> authenticate2(@Body User user);
 
-//    @FormUrlEncoded
     @POST("api/user/register")
     Call<User> register(@Body User user);
 
