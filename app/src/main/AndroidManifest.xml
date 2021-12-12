@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.doanuddd.musicapp1">
+    package="com.doanuddd.musicapp1" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +14,13 @@
         android:roundIcon="@mipmap/ic_vectordown_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicApp1"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <service
+            android:name=".MyPlayService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
         <activity
             android:name=".activity.PlayingMusicActivity"
             android:exported="true" />
@@ -38,7 +44,7 @@
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
