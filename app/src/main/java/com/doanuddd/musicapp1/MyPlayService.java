@@ -38,7 +38,7 @@ public class MyPlayService extends Service implements MediaPlayer.OnCompletionLi
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        linkSong = intent.getStringExtra("song");
+        linkSong = intent.getStringExtra("linkSong");
         mediaPlayer.reset();
 
         if (!mediaPlayer.isPlaying()){
@@ -47,7 +47,6 @@ public class MyPlayService extends Service implements MediaPlayer.OnCompletionLi
                 mediaPlayer.prepareAsync();
             }catch (Exception e){
                 Toast.makeText(this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         }
 
@@ -104,7 +103,9 @@ public class MyPlayService extends Service implements MediaPlayer.OnCompletionLi
 
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
-
+        if (!mediaPlayer.isPlaying()){
+            mediaPlayer.start();
+        }
     }
 
     @Override

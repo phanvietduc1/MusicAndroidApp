@@ -71,12 +71,6 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
                     Intent i = new Intent(context, PlayingMusicActivity.class);
                     i.putExtra("song", songList.get(getAdapterPosition()));
 
-                    //Set ten bai hat, ca si cho mini bar
-                    TextView txtName = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarName);
-                    TextView txtArtist = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarArtist);
-                    txtName.setText(songList.get(getAdapterPosition()).getTenBaiHat());
-                    txtArtist.setText(songList.get(getAdapterPosition()).getCaSi());
-
                     view.getContext().startActivity(i);
                 }
             });

@@ -25,6 +25,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.doanuddd.musicapp1.MyPlayService;
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.adapter.ViewPagerDisc;
 import com.doanuddd.musicapp1.fragment.FragmentDisc;
@@ -40,7 +41,6 @@ public class PlayingMusicActivity extends AppCompatActivity {
     private static final int PERMISSION_STORAGE_CODE = 1000;
 
     public static ArrayList<Song> songArrayList = new ArrayList<>();
-    private SQLiteDatabase db;
     private MediaPlayer mediaPlayer;
     private androidx.appcompat.widget.Toolbar toolbarplaynhac;
     private SeekBar seekBarnhac;
@@ -48,23 +48,22 @@ public class PlayingMusicActivity extends AppCompatActivity {
     private ImageButton imageButtontronnhac, imageButtonpreviewnhac, imageButtonplaypausenhac, imageButtonnexnhac,
             imageButtonlapnhac, imageButtonDownload, btn_underground;
     ViewPager viewPagerplaynhac;
-    private int dem = 0;
     private int position = 0;
     boolean repeat = false;
     boolean checkrandom = false;
     boolean next = false;
-    private String taikhoan, matkhau, name, url;
 
     FragmentDisc fragment_disc;
     public static ViewPagerDisc adapterDisc;
 
-    Intent intent;
+    Intent intent, serviceIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing_music);
         intent = getIntent();
+        serviceIntent = new Intent(this, MyPlayService.class);
         GetDataFromIntent();
         anhxa();
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
@@ -267,10 +266,18 @@ public class PlayingMusicActivity extends AppCompatActivity {
         btn_underground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(PlayingMusicActivity.this, HomeActivity.class);
-                startActivity(i);
 
-                
+                serviceIntent.putExtra("linkSong", songArrayList.get(0).getLinkBaiHat());
+                try {
+                    startService(serviceIntent);
+                } catch (SecurityException e){
+                    Toast.makeText(PlayingMusicActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                Intent i = new Intent(PlayingMusicActivity.this, HomeActivity.class);
+                i.putExtra("song", songArrayList.get(0));
+                startActivity(i);
+                finish();
             }
         });
     }
@@ -381,7 +388,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbarplaynhac);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbarplaynhac.setTitleTextColor(Color.BLACK);
+        toolbarplaynhac.setTitle("");
 
         fragment_disc = (FragmentDisc) adapterDisc.getItem(position);
         if (songArrayList.size() > 0) {
@@ -412,24 +419,24 @@ public class PlayingMusicActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String baihat) {
             super.onPostExecute(baihat);
-            try {
-                mediaPlayer = new MediaPlayer();
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        mediaPlayer.stop();
-                        mediaPlayer.reset();
-                    }
-                });
-                mediaPlayer.setDataSource(baihat);
-                mediaPlayer.prepare();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            mediaPlayer.start();
-            TimeSong();
-            UpdateTime();
+//            try {
+//                mediaPlayer = new MediaPlayer();
+//                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+//                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                    @Override
+//                    public void onCompletion(MediaPlayer mp) {
+//                        mediaPlayer.stop();
+//                        mediaPlayer.reset();
+//                    }
+//                });
+//                mediaPlayer.setDataSource(baihat);
+//                mediaPlayer.prepare();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            mediaPlayer.start();
+//            TimeSong();
+//            UpdateTime();
         }
     }
 
@@ -494,7 +501,6 @@ public class PlayingMusicActivity extends AppCompatActivity {
                             position = 0;
                         }
                         try {
-//                            checkYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
                             setImageDisc();
                             new playMP3().execute(songArrayList.get(position).getLinkBaiHat());
                             getSupportActionBar().setTitle(songArrayList.get(position).getTenBaiHat());
