@@ -57,8 +57,6 @@ public class OtpActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
 
         LoadingBar = new ProgressDialog(this);
-        LoadingBar.setTitle("Confirm Otp");
-        LoadingBar.setMessage("Please wait");
         LoadingBar.setCanceledOnTouchOutside(false);
 
         init();
@@ -182,6 +180,8 @@ public class OtpActivity extends AppCompatActivity {
 
     private void postOtp(){
         LoadingBar.show();
+        LoadingBar.setTitle("Confirm Otp");
+        LoadingBar.setMessage("Please wait");
 
         User u = new User();
         u.setEmail(email);
@@ -215,6 +215,8 @@ public class OtpActivity extends AppCompatActivity {
 
     private void resendOTP(){
         LoadingBar.show();
+        LoadingBar.setTitle("Resend Otp");
+        LoadingBar.setMessage("Please wait");
 
         User u = new User();
         u.setEmail(email);

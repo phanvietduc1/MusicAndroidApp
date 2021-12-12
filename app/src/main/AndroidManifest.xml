@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MusicApp1"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.UserProfileActivity"
             android:exported="true" />
         <activity

@@ -56,7 +56,6 @@ public class DBHandler extends SQLiteOpenHelper {
         User a = new User();
         a.setName(cursorCourses.getString(1));
         a.setEmail(cursorCourses.getString(2));
-        a.setToken(cursorCourses.getString(3));
         cursorCourses.close();
         return a;
     }
@@ -66,5 +65,14 @@ public class DBHandler extends SQLiteOpenHelper {
         // this method is called to check if the table exists already.
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+    public void addNewUser(String name, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NAME_COL, name);
+        values.put(EMAIL_COL, email);
+        db.insert(TABLE_NAME, null, values);
+        db.close();
     }
 }

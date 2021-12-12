@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             User user = response.body();
                             dbHandler = new DBHandler(LoginActivity.this);
-                            dbHandler.addNewUser(user.getName(), user.getEmail(), user.getToken());
+                            dbHandler.addNewUser(user.getName(), user.getEmail());
 
                             otpConfirm(user);
 

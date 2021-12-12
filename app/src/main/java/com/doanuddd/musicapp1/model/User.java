@@ -23,6 +23,9 @@ public class User {
     @SerializedName("otp")
     @Expose
     private String otp;
+    @SerializedName("oldPassword")
+    @Expose
+    private String oldPassword;
 
     public String getId() {
         return id;
@@ -70,6 +73,14 @@ public class User {
 
     public void setOtp(String otp) {
         this.otp = otp;
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
     }
 
 }

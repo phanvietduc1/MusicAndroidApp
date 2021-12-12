@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.doanuddd.musicapp1.R;
+import com.doanuddd.musicapp1.activity.ChangePasswordActivity;
 import com.doanuddd.musicapp1.activity.HomeActivity;
 import com.doanuddd.musicapp1.activity.LoginActivity;
 import com.doanuddd.musicapp1.activity.UserProfileActivity;
@@ -29,7 +30,7 @@ public class FragmentSetting extends Fragment {
 
     HomeActivity hm;
     View view;
-    Button btn_logout, btn_profile;
+    Button btn_logout, btn_profile, btn_changPass;
     TextView txt_settingname;
 
 
@@ -74,6 +75,13 @@ public class FragmentSetting extends Fragment {
                 startActivity(i);
             }
         });
+        btn_changPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
+                startActivity(i);
+            }
+        });
 
         return view;
     }
@@ -87,5 +95,6 @@ public class FragmentSetting extends Fragment {
     private void anhxa(){
         btn_logout = view.findViewById(R.id.btn_logout);
         btn_profile = view.findViewById(R.id.btn_profile);
+        btn_changPass = view.findViewById(R.id.btn_changePass);
     }
 }

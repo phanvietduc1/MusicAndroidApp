@@ -129,6 +129,7 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/layout_bg.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/drawable/underlined_input_text.xml" value="0.20052083333333334" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/font/arimo_bold.xml" value="0.13020833333333334" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_change_password.xml" value="0.16666666666666666" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_danhsachbaihat.xml" value="0.184375" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home.xml" value="0.1403985507246377" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_home0.xml" value="0.3333333333333333" />
@@ -142,7 +143,7 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_register.xml" value="0.3137254901960784" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_song_list.xml" value="0.6" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_song_list0.xml" value="0.14447463768115942" />
-        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_user_profile.xml" value="0.13229166666666667" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_user_profile.xml" value="0.22" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/activity_userprofile.xml" value="0.13229166666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/content_song_list.xml" value="0.3333333333333333" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_bxh.xml" value="0.184375" />
@@ -160,6 +161,7 @@
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/fragment_timkiem.xml" value="0.11197916666666667" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/meu_search.xml" value="0.184375" />
+        <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/remove_activity_danhsachbaihat.xml" value="0.1" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/remove_fragment_bxh.xml" value="0.1" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_artist.xml" value="0.5" />
         <entry key="..\:/code/MusicAndroidApp/app/src/main/res/layout/row_genre.xml" value="0.5" />
