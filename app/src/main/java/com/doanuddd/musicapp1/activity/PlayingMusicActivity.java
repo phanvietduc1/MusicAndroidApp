@@ -46,7 +46,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
     private SeekBar seekBarnhac;
     private TextView textViewtennhac, textViewcasi, textViewrunrime, textViewtatoltime;
     private ImageButton imageButtontronnhac, imageButtonpreviewnhac, imageButtonplaypausenhac, imageButtonnexnhac,
-            imageButtonlapnhac, imageButtonDownload;
+            imageButtonlapnhac, imageButtonDownload, btn_underground;
     ViewPager viewPagerplaynhac;
     private int dem = 0;
     private int position = 0;
@@ -263,6 +263,14 @@ public class PlayingMusicActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btn_underground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlayingMusicActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void startDownloading() {
@@ -353,6 +361,7 @@ public class PlayingMusicActivity extends AppCompatActivity {
         seekBarnhac = findViewById(R.id.seekBartime);
         viewPagerplaynhac = findViewById(R.id.viewPagerdianhac);
         imageButtonDownload = findViewById(R.id.btn_download);
+        btn_underground = findViewById(R.id.btn_underground);
         imageButtontronnhac = findViewById(R.id.imageButtontron);
         imageButtonpreviewnhac = findViewById(R.id.imageButtonpreview);
         imageButtonplaypausenhac = findViewById(R.id.imageButtonplaypause);
