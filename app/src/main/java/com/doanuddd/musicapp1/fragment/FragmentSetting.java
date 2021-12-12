@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.HomeActivity;
 import com.doanuddd.musicapp1.activity.LoginActivity;
+import com.doanuddd.musicapp1.activity.UserProfileActivity;
 import com.squareup.picasso.Picasso;
 
 
@@ -68,8 +69,8 @@ public class FragmentSetting extends Fragment {
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager manager1 = getActivity().getSupportFragmentManager();
-                manager1.beginTransaction().replace(R.id.container2,new FragmentProfile()).commit();
+                Intent i = new Intent(getActivity(), UserProfileActivity.class);
+                startActivity(i);
             }
         });
 
