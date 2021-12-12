@@ -35,4 +35,7 @@ public interface UserApi {
 
     @POST("api/user/resetPassword")
     Call<User> resetPassword(@Body Keyword keyword);
+
+    @POST("api/user/changePassword")
+    Call<User> changePassword(@Body User user);
 }

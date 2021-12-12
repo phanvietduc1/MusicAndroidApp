@@ -26,7 +26,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     ImageButton btnBack;
     Button btnConfirm;
-    TextInputEditText txtOldPass, txtNewPass;
+    TextInputEditText txtOldPass, txtNewPass, txtConfirmPass;
     ProgressDialog LoadingBar;
     private SQLiteDatabase db;
     private String name, email, password;
@@ -36,6 +36,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         db = openOrCreateDatabase("userdb", MODE_PRIVATE, null);
+        getData();
         init();
         LoadingBar = new ProgressDialog(this);
         LoadingBar.setCanceledOnTouchOutside(false);
@@ -44,13 +45,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private void init(){
         btnBack = findViewById(R.id.btnBack);
         btnConfirm = findViewById(R.id.btnConfirm);
-        txtNewPass = findViewById(R.id.newPassword);
-        txtOldPass = findViewById(R.id.oldPassword);
+        txtNewPass = findViewById(R.id.newPassword2);
+        txtOldPass = findViewById(R.id.oldPassword2);
+        txtConfirmPass = findViewById(R.id.confirmPass2);
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                confirmSent();
             }
         });
 
@@ -73,7 +75,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         u.setPassword(txtNewPass.getText().toString());
 
         UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
-        Call<User> call = userApi.resendOTP(u);
+        Call<User> call = userApi.changePassword(u);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -104,6 +106,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
             name = cursor.getString(1);
             email = cursor.getString(2);
             password = cursor.getString(3);
+        }
+    }
+
+    private void confirmSent(){
+        if (txtConfirmPass.getText().toString().equals(txtNewPass.getText().toString())){
+            postPassword();
+        } else {
+            Toast.makeText(ChangePasswordActivity.this, "Wrong confirm password", Toast.LENGTH_SHORT).show();
         }
     }
 }
