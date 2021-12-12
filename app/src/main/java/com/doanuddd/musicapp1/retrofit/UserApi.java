@@ -23,6 +23,9 @@ public interface UserApi {
     @POST("api/user/login")
     Call<User> authenticate(@Body User user);
 
+    @POST("api/user/loginByHash")
+    Call<User> authenticate2(@Body User user);
+
 //    @FormUrlEncoded
     @POST("api/user/register")
     Call<User> register(@Body User user);

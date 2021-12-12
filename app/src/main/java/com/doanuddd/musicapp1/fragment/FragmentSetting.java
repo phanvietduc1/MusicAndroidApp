@@ -70,7 +70,7 @@ public class FragmentSetting extends Fragment {
                 startActivity(i);
                 getActivity().finish();
                 dbHandler = new DBHandler(getActivity());
-                dbHandler.clearData("user");
+                dbHandler.clearData(hm.getName());
 
                 Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
             }

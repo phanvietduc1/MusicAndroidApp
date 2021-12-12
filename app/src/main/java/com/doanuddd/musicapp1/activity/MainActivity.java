@@ -40,11 +40,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = openOrCreateDatabase("userdb", MODE_PRIVATE, null);
-        dbHandler = new DBHandler(MainActivity.this);
 
         anhxa();
-//        initData();
+        initData();
         getData();
 
         if (name.isEmpty()) {
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     LoginAccount(email, password);
                 }
-            }, 5000);
+            }, 4000);
         }
     }
 
@@ -84,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
             u.setPassword(password);
 
             UserApi userApi = ApiClient.self().retrofit.create(UserApi.class);
-            Call<User> call = userApi.authenticate(u);
+            Call<User> call = userApi.authenticate2(u);
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful()) {
                         User user = response.body();
                         dbHandler = new DBHandler(MainActivity.this);
-                        dbHandler.addNewUser(user.getName(), user.getEmail());
+                        dbHandler.addNewUser(user.getName(), user.getEmail(), user.getPassword());
 
                         otpConfirm(user);
                     }
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         db = openOrCreateDatabase("userdb", MODE_PRIVATE, null);
-        String sql = "CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT,name text, email text, password text)";
+        String sql = "CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, name text, email text, password text)";
         db.execSQL(sql);
     }
 
