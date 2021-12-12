@@ -40,7 +40,7 @@ import retrofit2.Response;
 public class RegisterActivity extends AppCompatActivity {
     private MaterialButton btnLinkToLogin;
     private Button btnRegister;
-    private TextInputLayout inputName, inputPhone, inputPassword;
+    private TextInputLayout inputName, inputPhone, inputPassword, confirm_pass;
     String phone, name, password;
     ProgressDialog LoadingBar;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -54,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputName = findViewById(R.id.edit_name);
         inputPassword = findViewById(R.id.edit_password);
         btnLinkToLogin = findViewById(R.id.button_login);
+        confirm_pass = findViewById(R.id.confirm_pass);
 
         btnRegister = (Button)findViewById(R.id.button_register);
 
@@ -99,6 +100,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (password.length()<6){
             Toast.makeText(getApplicationContext(),"Password must be longer than 6 characters",Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+        if (confirm_pass.getEditText().toString().equals(inputPassword.getEditText().toString())){
+        } else {
+            Toast.makeText(getApplicationContext(),"Confirm password is not correct",Toast.LENGTH_SHORT).show();
             return 0;
         }
 
