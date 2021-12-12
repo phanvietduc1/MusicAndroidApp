@@ -1,5 +1,6 @@
 package com.doanuddd.musicapp1.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -67,6 +68,13 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
                     Log.i("tagmusic", "onClick: click vao bai hat");
                     Intent intent = new Intent(context, PlayingMusicActivity.class);
                     intent.putExtra("localSong", listSong.get(getAdapterPosition()));
+
+                    //Set ten bai hat, ca si cho mini bar
+                    TextView txtName = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarName);
+                    TextView txtArtist = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarArtist);
+                    txtName.setText(listSong.get(getAdapterPosition()).getTenBaiHat());
+                    txtArtist.setText(listSong.get(getAdapterPosition()).getCaSi());
+
                     context.startActivity(intent);
                 }
             });

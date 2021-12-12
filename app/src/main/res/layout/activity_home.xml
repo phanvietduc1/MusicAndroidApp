@@ -21,6 +21,65 @@
             android:background="@color/mautrongsuot" />
     </androidx.viewpager.widget.ViewPager>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#0f3f4f"
+        android:id="@+id/mini_bar">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageSong"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/icondisk" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageSong"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMiniBarName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enjoy music..."
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"
+                tools:text="Song name" />
+
+            <TextView
+                android:id="@+id/txtMiniBarArtist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:text=""
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                tools:text="Artist" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_mini_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="6dp"
+            app:srcCompat="@drawable/angleright"
+            app:tint="@color/white" />
+    </RelativeLayout>
+
 <!--android:background="@drawable/bgr_maintab"-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"

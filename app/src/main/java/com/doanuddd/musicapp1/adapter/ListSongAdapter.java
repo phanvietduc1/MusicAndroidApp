@@ -1,13 +1,16 @@
 package com.doanuddd.musicapp1.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 
 public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.CustomViewHolder> {
 
-    private ArrayList<Song> songList;
+    public static ArrayList<Song> songList;
     Context context;
     View view;
 
@@ -67,6 +70,13 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.Custom
                 public void onClick(View view) {
                     Intent i = new Intent(context, PlayingMusicActivity.class);
                     i.putExtra("song", songList.get(getAdapterPosition()));
+
+                    //Set ten bai hat, ca si cho mini bar
+                    TextView txtName = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarName);
+                    TextView txtArtist = (TextView) ((Activity) context).findViewById(R.id.txtMiniBarArtist);
+                    txtName.setText(songList.get(getAdapterPosition()).getTenBaiHat());
+                    txtArtist.setText(songList.get(getAdapterPosition()).getCaSi());
+
                     view.getContext().startActivity(i);
                 }
             });
