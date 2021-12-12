@@ -50,6 +50,18 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void clearData(String courseName) {
+
+        // on below line we are creating
+        // a variable to write our database.
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are calling a method to delete our
+        // course and we are comparing it with our course name.
+        db.delete(TABLE_NAME, "name=?", new String[]{courseName});
+        db.close();
+    }
+
     public User readUser() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);

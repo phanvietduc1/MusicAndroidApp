@@ -1,6 +1,7 @@
 package com.doanuddd.musicapp1.fragment;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.ChangePasswordActivity;
+import com.doanuddd.musicapp1.activity.DBHandler;
 import com.doanuddd.musicapp1.activity.HomeActivity;
 import com.doanuddd.musicapp1.activity.LoginActivity;
 import com.doanuddd.musicapp1.activity.UserProfileActivity;
@@ -32,7 +34,8 @@ public class FragmentSetting extends Fragment {
     View view;
     Button btn_logout, btn_profile, btn_changPass;
     TextView txt_settingname;
-
+    private SQLiteDatabase db;
+    private DBHandler dbHandler;
 
     public FragmentSetting() {
         // Required empty public constructor
@@ -59,12 +62,16 @@ public class FragmentSetting extends Fragment {
         view =  inflater.inflate(R.layout.fragment_setting, container, false);
         anhxa();
         Init();
+
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), LoginActivity.class);
                 startActivity(i);
                 getActivity().finish();
+                dbHandler = new DBHandler(getActivity());
+                dbHandler.clearData("user");
+
                 Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
             }
         });
