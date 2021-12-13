@@ -1,4 +1,4 @@
-package com.doanuddd.musicapp1.activity;
+package com.doanuddd.musicapp1;
 
 import android.content.ContentValues;
 import android.content.Context;
