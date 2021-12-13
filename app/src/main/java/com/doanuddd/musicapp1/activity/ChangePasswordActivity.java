@@ -86,7 +86,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 }
                 else {
                     LoadingBar.dismiss();
-                    Toast.makeText(ChangePasswordActivity.this, "Respone fail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this, "Change password fail", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
