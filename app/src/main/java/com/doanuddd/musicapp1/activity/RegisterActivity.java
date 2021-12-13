@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
             return 0;
         }
 
-        if (confirm_pass.getEditText().toString().equals(inputPassword.getEditText().toString())){
+        if (confirm_pass.getEditText().getText().toString().equals(inputPassword.getEditText().getText().toString())){
         } else {
             Toast.makeText(getApplicationContext(),"Confirm password is not correct",Toast.LENGTH_SHORT).show();
             return 0;
