@@ -67,6 +67,13 @@ public class PlayMusicActivity extends AppCompatActivity {
         intent = getIntent();
         anhxa();
         GetDataFromIntent();
+
+        fragment_disc = (FragmentDisc) adapterDisc.getItem(position);
+        if (songArrayList.size() > 0) {
+            new playMP3().onPostExecute(songArrayList.get(position).getLinkBaiHat());
+            imageButtonplaypausenhac.setImageResource(R.drawable.nutplay);
+        }
+
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -381,15 +388,6 @@ public class PlayMusicActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbarplaynhac);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        toolbarplaynhac.setTitleTextColor(Color.BLACK);
-
-        fragment_disc = (FragmentDisc) adapterDisc.getItem(position);
-        if (songArrayList.size() > 0) {
-//            checkYeuThich(taikhoan, mangbaihat.get(position).getIdBaiHat());
-//            getSupportActionBar().setTitle(songArrayList.get(position).getTenBaiHat());
-            new playMP3().onPostExecute(songArrayList.get(position).getLinkBaiHat());
-            imageButtonplaypausenhac.setImageResource(R.drawable.nutplay);
-        }
-
 //        toolbarplaynhac.setNavigationOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
