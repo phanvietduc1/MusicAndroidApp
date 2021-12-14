@@ -11,6 +11,7 @@ import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.adapter.ListLocalSongAdapter;
 import com.doanuddd.musicapp1.model.Song;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class FragmentLibrary extends Fragment {
@@ -82,6 +84,8 @@ public class FragmentLibrary extends Fragment {
         {
             doStuff();
         }
+
+        convertData();
         return view;
     }
     public void getMusic(){
@@ -136,6 +140,12 @@ public class FragmentLibrary extends Fragment {
             }
         }
     }
+    public void convertData(){
+        for (int n=0;n<arrayList.size();n++) {
+            Bitmap rs = arrayList.get(n).getHinhBaiHatBit();
+            arrayList.get(n).setHinhBaiHat(convertBitmapToString(rs));
+        }
+    }
     public void doStuff(){
         //listView = (ListView) view.findViewById(R.id.listView);
         arrayList= new ArrayList<>();
@@ -155,5 +165,12 @@ public class FragmentLibrary extends Fragment {
                 view.getContext().startActivity(i);
             }
         });
+    }
+    public String convertBitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        String result = Base64.encodeToString(byteArray, Base64.DEFAULT);
+        return result;
     }
 }

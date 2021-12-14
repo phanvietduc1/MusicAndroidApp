@@ -87,6 +87,4 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
             return result;
         }
     }
-
-
 }
