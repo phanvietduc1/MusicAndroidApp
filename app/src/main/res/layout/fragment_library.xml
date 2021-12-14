@@ -47,9 +47,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewtv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="485dp"
             android:layout_below="@+id/appbarlayouttimkiem"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="60dp" />
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 

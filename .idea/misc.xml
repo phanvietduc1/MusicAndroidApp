@@ -14,7 +14,11 @@
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_login.xml" value="0.12083333333333333" />
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_main.xml" value="0.12083333333333333" />
-        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_library.xml" value="0.16666666666666666" />
+        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_play_music.xml" value="0.18854166666666666" />
+        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_playlist.xml" value="0.18854166666666666" />
+        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/activity_user_profile.xml" value="0.18854166666666666" />
+        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_disc.xml" value="0.18854166666666666" />
+        <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_library.xml" value="0.1" />
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_profile.xml" value="0.18854166666666666" />
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_search.xml" value="0.16666666666666666" />
         <entry key="..\:/APKBT/AppMobile/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
