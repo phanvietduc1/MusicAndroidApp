@@ -2,6 +2,8 @@ package com.doanuddd.musicapp1.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.doanuddd.musicapp1.R;
 import com.doanuddd.musicapp1.activity.PlayMusicActivity;
 import com.doanuddd.musicapp1.model.Song;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdapter.ViewHolder>{
@@ -64,6 +67,10 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
                 @Override
                 public void onClick(View view) {
                     Log.i("tagmusic", "onClick: click vao bai hat");
+
+                    Bitmap rs = listSong.get(getAdapterPosition()).getHinhBaiHatBit();
+                    listSong.get(getAdapterPosition()).setHinhBaiHat(convertBitmapToString(rs));
+
                     Intent intent = new Intent(context, PlayMusicActivity.class);
                     intent.putExtra("localSong", listSong.get(getAdapterPosition()));
                     context.startActivity(intent);
@@ -71,5 +78,15 @@ public class ListLocalSongAdapter extends RecyclerView.Adapter<ListLocalSongAdap
             });
 
         }
+
+        public String convertBitmapToString(Bitmap bitmap) {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            String result = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            return result;
+        }
     }
+
+
 }

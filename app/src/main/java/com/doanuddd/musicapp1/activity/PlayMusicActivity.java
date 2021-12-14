@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -16,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -356,10 +359,12 @@ public class PlayMusicActivity extends AppCompatActivity {
                 fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHat());
             }
             if (intent.hasExtra(("localSong"))){
-                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHatBit());
+                Bitmap bitmap = StringToBitMap(songArrayList.get(position).getHinhBaiHat());
+                fragment_disc.PlayNhac(bitmap);
             }
             if (intent.hasExtra(("listLocalSong"))){
-                fragment_disc.PlayNhac(songArrayList.get(position).getHinhBaiHatBit());
+                Bitmap bitmap = StringToBitMap(songArrayList.get(position).getHinhBaiHat());
+                fragment_disc.PlayNhac(bitmap);
             }
         }
     }
@@ -396,6 +401,18 @@ public class PlayMusicActivity extends AppCompatActivity {
 //                finish();
 //            }
 //        });
+    }
+
+    public Bitmap StringToBitMap(String encodedString){
+        try{
+            byte [] encodeByte = Base64.decode(encodedString,Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        }
+        catch(Exception e){
+            e.getMessage();
+            return null;
+        }
     }
 
     class playMP3 extends AsyncTask<String, Void, String> {
